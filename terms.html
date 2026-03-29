@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Tennis Coaching — Terms & Conditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1a7a54;
+    --green-mid: #24a870;
+    --green-pale: #e8f7f0;
+    --clay: #c8541a;
+    --clay-light: #f47840;
+    --clay-pale: #fdf0e8;
+    --dark: #0e1a14;
+    --mid: #2b3d33;
+    --muted: #5a6e63;
+    --border: #d4e0da;
+    --bg: #f4f7f5;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+  }
+
+  /* NAV */
+  nav {
+    background: var(--dark);
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--clay-light); }
+
+  .nav-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+    border: 1px solid rgba(244,120,64,0.4);
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--green);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.03em;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    position: relative;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .hero-meta span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .hero-meta span strong { color: var(--clay-light); }
+
+  /* LAYOUT */
+  .layout {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* SIDEBAR TOC */
+  .toc {
+    position: sticky;
+    top: 68px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .toc-header {
+    background: var(--dark);
+    padding: 0.75rem 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0.5rem 0;
+  }
+
+  .toc-list li a {
+    display: block;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+
+  .toc-list li a:hover {
+    color: var(--green);
+    border-left-color: var(--green);
+    background: var(--green-pale);
+  }
+
+  .toc-list li a.active {
+    color: var(--green);
+    border-left-color: var(--green);
+    background: var(--green-pale);
+    font-weight: 700;
+  }
+
+  /* CONTENT */
+  .content { min-width: 0; }
+
+  /* SECTION */
+  .tc-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    scroll-margin-top: 80px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+
+  .section-head:hover { background: var(--green-pale); }
+
+  .section-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+    flex: 1;
+  }
+
+  .section-toggle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+
+  .section-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .section-body.collapsed { display: none; }
+
+  /* CLAUSES */
+  .clause {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .clause:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .clause-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+
+  .clause p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .clause p:last-child { margin-bottom: 0; }
+
+  .clause ul {
+    padding-left: 1.1rem;
+    margin: 0.4rem 0;
+  }
+
+  .clause ul li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .clause ul li strong { color: var(--dark); }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.75rem 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+
+  .callout-green {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    color: var(--dark);
+  }
+
+  .callout-orange {
+    background: var(--clay-pale);
+    border-left: 4px solid var(--clay);
+    color: var(--dark);
+  }
+
+  .callout-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .callout-green .callout-label { color: var(--green); }
+  .callout-orange .callout-label { color: var(--clay); }
+
+  /* LOCATION CARDS */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0.75rem 0;
+  }
+
+  .location-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .location-card-header {
+    background: var(--dark);
+    padding: 0.65rem 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .location-card-header span { color: var(--clay-light); font-size: 0.75rem; margin-left: 6px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+  .location-card-body {
+    padding: 0.85rem 1rem;
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .location-card-body strong { color: var(--dark); display: block; margin-bottom: 0.25rem; }
+
+  .location-detail {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.82rem;
+  }
+
+  .location-detail .ld-label {
+    color: var(--green);
+    font-weight: 700;
+    min-width: 70px;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-top: 1px;
+  }
+
+  /* CANCELLATION TABLE */
+  .cancel-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+  }
+
+  .cancel-table th {
+    background: var(--dark);
+    color: white;
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+  }
+
+  .cancel-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .cancel-table tr:nth-child(even) td { background: var(--bg); }
+  .cancel-table tr:last-child td { border-bottom: none; }
+
+  .badge-green {
+    display: inline-block;
+    background: var(--green-pale);
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .badge-orange {
+    display: inline-block;
+    background: var(--clay-pale);
+    color: var(--clay);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .badge-red {
+    display: inline-block;
+    background: #fdeaea;
+    color: #b91c1c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ACCEPTANCE FOOTER */
+  .acceptance {
+    background: var(--dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  .acceptance h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .acceptance p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .btn-waiver {
+    display: inline-block;
+    background: var(--clay);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 5px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-waiver:hover { background: var(--clay-light); transform: translateY(-1px); }
+
+  .version-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 1rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Floating step arrow */
+  .float-arrow {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bobUp 2s ease-in-out infinite;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  @keyframes bobUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .float-arrow-label {
+    background: var(--dark);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  .float-arrow-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--clay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(200,84,26,0.45);
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .float-arrow:hover .float-arrow-btn { background: var(--clay-light); transform: scale(1.08); }
+
+  .float-arrow-btn svg { width: 22px; height: 22px; fill: white; }
+
+  /* Step indicator bar */
+  .step-bar {
+    background: var(--dark);
+    padding: 0.85rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .step-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-circle.active { background: var(--clay); color: white; }
+  .step-circle.inactive { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
+
+  .step-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .step-label.active { color: white; }
+  .step-label.inactive { color: rgba(255,255,255,0.35); }
+
+  .step-arrow {
+    margin: 0 1rem;
+    color: rgba(255,255,255,0.2);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    .layout { grid-template-columns: 1fr; }
+    .toc { position: static; }
+    .location-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Start Tennis<span>Sydney</span> Tennis Coaching</a>
+  <div class="nav-badge">Terms & Conditions</div>
+</nav>
+
+<!-- Step indicator -->
+<div class="step-bar">
+  <div class="step-item">
+    <div class="step-circle active">1</div>
+    <span class="step-label active">Read T&amp;Cs</span>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-item">
+    <div class="step-circle inactive">2</div>
+    <span class="step-label inactive">Sign Waiver</span>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-item">
+    <div class="step-circle inactive">3</div>
+    <span class="step-label inactive">Pay via Stripe</span>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-item">
+    <div class="step-circle inactive">4</div>
+    <span class="step-label inactive">Session Confirmed</span>
+  </div>
+</div>
+
+<div id="tcReadBar" style="height:4px; background:var(--border); position:sticky; top:60px; z-index:99;"><div id="tcReadFill" style="height:100%; width:0%; background:var(--green); transition:width 0.1s;"></div></div>
+
+<div class="hero">
+  <h1>Terms & Conditions</h1>
+  <p>Please read carefully before booking a session or completing your waiver</p>
+  <div class="hero-meta">
+    <span>Effective: <strong>March 2026</strong></span>
+    <span>Jurisdiction: <strong>NSW, Australia</strong></span>
+    <span>Locations: <strong>Waverley Park · Northbridge Park · Glebe</strong></span>
+    <span>Version: <strong>1.0</strong></span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="toc">
+    <div class="toc-header">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1">1. About Jack & Services</a></li>
+      <li><a href="#s2">2. Court Locations</a></li>
+      <li><a href="#s3">3. Booking & Payment</a></li>
+      <li><a href="#s4">4. Cancellation & Rescheduling</a></li>
+      <li><a href="#s5">5. Refund Policy</a></li>
+      <li><a href="#s6">6. Late Arrivals & No-Shows</a></li>
+      <li><a href="#s7">7. Weather & Court Conditions</a></li>
+      <li><a href="#s8">8. Code of Conduct</a></li>
+      <li><a href="#s9">9. Health & Safety</a></li>
+      <li><a href="#s10">10. Coach's Right to Cancel</a></li>
+      <li><a href="#s11">11. Photography & Video</a></li>
+      <li><a href="#s12">12. Privacy</a></li>
+      <li><a href="#s13">13. Governing Law</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- 1. About -->
+    <div class="tc-section" id="s1">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">1</div>
+        <div class="section-title">About Jack & Coaching Services</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">The Coach</div>
+          <p>These Terms and Conditions govern all tennis coaching services provided by Jack ("the Coach"), operating as an independent freelance tennis coach in the Eastern Suburbs of Sydney, NSW. By booking a session, making payment, or signing the accompanying Liability Waiver, the client ("you") agrees to be bound by these Terms in full.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Qualifications</div>
+          <p>Jack holds the following current credentials:</p>
+          <ul>
+            <li><strong>Tennis Australia Accreditation</strong> — current and valid</li>
+            <li><strong>Court permit</strong> — Eastern Suburbs community tennis courts</li>
+            <li><strong>Sport Science student</strong> — University of Technology Sydney (UTS)</li>
+            <li><strong>3+ years swim coaching experience</strong></li>
+            <li><strong>ATPCA insurance</strong> — currently pending; interim policy applies</li>
+          </ul>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Services Offered</div>
+          <p>Jack provides private and small-group tennis coaching sessions for adult clients (18+) of beginner to early-intermediate ability. Services include:</p>
+          <ul>
+            <li>One-on-one private lessons (30, 60 or 90 minutes)</li>
+            <li>Small group sessions (2–4 players)</li>
+            <li>Beginner fundamentals programs</li>
+            <li>Technique and skill development sessions</li>
+          </ul>
+          <p>Jack does not currently offer coaching to clients under 18. This will be reviewed once full ATPCA accreditation and insurance is obtained.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Eligibility</div>
+          <p>By booking a session you confirm that you are aged 18 or over, are physically capable of participating in recreational tennis activity, and have disclosed any relevant medical conditions or injuries to the Coach prior to your first session.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Court Locations -->
+    <div class="tc-section" id="s2">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">2</div>
+        <div class="section-title">Court Locations</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Priority Venue — Waverley Park (First Preference for All Bookings)</div>
+          <p>Waverley Park Multipurpose Courts is Jack's default and first-preference venue for all coaching sessions. When a client books, Waverley Park will be offered as the primary location unless unavailable due to court conflicts, weather, or client location preference.</p>
+          <div class="location-grid" style="grid-template-columns:1fr;margin-top:0.75rem;">
+            <div class="location-card">
+              <div class="location-card-header">⭐ Waverley Park <span>Priority Venue · Bondi Junction</span></div>
+              <div class="location-card-body">
+                <div class="location-detail"><span class="ld-label">Address</span><span>Cnr Birrell St &amp; St Marys Ave, Bondi Junction NSW 2026</span></div>
+                <div class="location-detail"><span class="ld-label">Courts</span><span>3 multipurpose courts — suitable for tennis, netball and basketball</span></div>
+                <div class="location-detail"><span class="ld-label">Lights</span><span>Yes — available until 10pm daily</span></div>
+                <div class="location-detail"><span class="ld-label">Parking</span><span>Street parking on Birrell St and St Marys Ave</span></div>
+                <div class="location-detail"><span class="ld-label">Transport</span><span>360 bus route stops on Birrell St directly outside the park</span></div>
+                <div class="location-detail"><span class="ld-label">Court hire</span><span>$43–$48 per hour — included in the combined session total charged by Jack</span></div>
+                <div class="location-detail"><span class="ld-label">Booking</span><span>Jack books via Waverley Council's online system — client does not need to book separately</span></div>
+                <div class="location-detail"><span class="ld-label">Priority</span><span>First preference for all new and returning client bookings. Alternatives offered only when Waverley Park is unavailable</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Alternative Venues</div>
+          <p>If Waverley Park is unavailable or a different location better suits the client, sessions may be held at one of the following alternative venues. Jack will always confirm the venue in writing before payment is requested.</p>
+          <div class="location-grid">
+            <div class="location-card">
+              <div class="location-card-header">Northbridge Park <span>Northbridge NSW 2063</span></div>
+              <div class="location-card-body">
+                <div class="location-detail"><span class="ld-label">Type</span><span>Multipurpose court</span></div>
+                <div class="location-detail"><span class="ld-label">Court hire</span><span>~$20 per hour — included in combined total</span></div>
+                <div class="location-detail"><span class="ld-label">Permit</span><span>Jack holds a valid court permit</span></div>
+                <div class="location-detail"><span class="ld-label">Parking</span><span>Street parking available nearby</span></div>
+                <div class="location-detail"><span class="ld-label">Notes</span><span>Alternative venue — offered when Waverley Park is unavailable or client is based in the north</span></div>
+              </div>
+            </div>
+            <div class="location-card">
+              <div class="location-card-header">Glebe Tennis Court <span>Glebe NSW 2037</span></div>
+              <div class="location-card-body">
+                <div class="location-detail"><span class="ld-label">Type</span><span>Hard tennis court (City of Sydney)</span></div>
+                <div class="location-detail"><span class="ld-label">Court hire</span><span>$30.30–$37.20 per hour — included in combined total</span></div>
+                <div class="location-detail"><span class="ld-label">Lights</span><span>Yes — available until 10pm</span></div>
+                <div class="location-detail"><span class="ld-label">Permit</span><span>Jack holds a valid court permit</span></div>
+                <div class="location-detail"><span class="ld-label">Parking</span><span>Street parking available nearby</span></div>
+                <div class="location-detail"><span class="ld-label">Notes</span><span>Alternative venue — offered when Waverley Park is unavailable or client is based in the inner west</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Court Hire Costs — Combined with Coaching Fee</div>
+          <p>Court hire and coaching fees are <strong>charged together as a single combined total</strong>. The client pays one amount that covers both the court booking and Jack's coaching fee. Jack arranges and pays the court hire on the client's behalf and includes this in the total session price.</p>
+          <p>Court hire rates vary by venue and time of day. The base court hire costs at each approved venue are:</p>
+          <div style="overflow-x:auto;margin:0.75rem 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+              <thead>
+                <tr style="background:var(--green-pale);">
+                  <th style="padding:0.6rem 0.85rem;text-align:left;border:1px solid var(--border);color:var(--green);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Venue</th>
+                  <th style="padding:0.6rem 0.85rem;text-align:left;border:1px solid var(--border);color:var(--green);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Weekday (before 5pm)</th>
+                  <th style="padding:0.6rem 0.85rem;text-align:left;border:1px solid var(--border);color:var(--green);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Evening & Weekends</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);"><strong style="color:var(--dark);">Waverley Park</strong><br><span style="font-size:0.78rem;">Multipurpose court</span></td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);"></span><span style="font-weight:700;">$43–$48 / hr</td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);">~$25–$30 / hr</td>
+                </tr>
+                <tr style="background:rgba(0,0,0,0.02);">
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);"><strong style="color:var(--dark);">Northbridge Park</strong><br><span style="font-size:0.78rem;">Multipurpose court</span></td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);"></span><span style="font-weight:700;">$43–$48 / hr</td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);">~$25–$30 / hr</td>
+                </tr>
+                <tr>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);"><strong style="color:var(--dark);">Glebe Tennis Court</strong><br><span style="font-size:0.78rem;">Hard court (City of Sydney)</span></td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);">$30.30 / hr</td>
+                  <td style="padding:0.6rem 0.85rem;border:1px solid var(--border);color:var(--muted);">$37.20 / hr</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The combined session total (coaching + court hire) will be confirmed in writing by Jack at the time of booking and will reflect the venue and time slot selected. Jack will confirm the exact total before payment is due.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Court Availability</div>
+          <p>Session scheduling is subject to court availability across all three locations. Jack will confirm the specific venue and court at the time of booking confirmation. In the event that a booked court becomes unavailable due to factors outside Jack's control (e.g. maintenance, venue closure, weather), Jack will make reasonable efforts to secure an alternative court at one of the other approved venues or reschedule the session at no additional cost to the client.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Court Rules & Conduct</div>
+          <p>Waverley Park, Northbridge Park, and Glebe Tennis Court are all managed public facilities. All clients must comply with the rules and regulations set by the respective venue operators while on court. This includes but is not limited to:</p>
+          <ul>
+            <li>Wearing appropriate non-marking court shoes at all times</li>
+            <li>Not bringing food or glass onto the court surface</li>
+            <li>Vacating the court promptly at the end of the booked time</li>
+            <li>Treating court facilities and equipment with care</li>
+            <li>Following any signage or instructions from venue staff</li>
+          </ul>
+          <p>Any damage to court property caused by a client during a session will be the financial responsibility of that client.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Client Responsibility for Arrival</div>
+          <p>Clients are responsible for knowing the location of their booked court and arriving on time. Jack will provide the specific court number and any access instructions in the booking confirmation message. It is the client's responsibility to allow sufficient travel and parking time. Session time will not be extended due to late client arrival — see Section 6.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Equipment</div>
+          <p>Jack will supply tennis balls for all sessions. Clients are expected to bring their own racket unless otherwise arranged. If a client does not have a racket, Jack may be able to arrange a loaner at his discretion — this must be requested at least 24 hours before the session. Jack accepts no responsibility for loss of, or damage to, any personal equipment brought to a session.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Booking & Payment -->
+    <div class="tc-section" id="s3">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">3</div>
+        <div class="section-title">Booking & Payment</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">How to Book</div>
+          <p>All sessions must be booked directly with Jack via phone, email, or the booking link on Jack's website. A booking is not confirmed until Jack has responded in writing (SMS, email or messaging app) confirming the date, time, location and session fee.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Trial Lesson — First Session Pricing</div>
+          <div class="callout callout-green" style="background:var(--green-pale);border-left:4px solid var(--green);border-radius:0 6px 6px 0;padding:1rem 1.25rem;margin-bottom:0.75rem;">
+            <div class="callout-label" style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem;">Trial Lesson — All-Inclusive Pricing</div>
+            New clients are eligible for a discounted trial lesson on their first session only. The court is fully included — no separate fees. Waverley Park: <strong>$80</strong> · Northbridge Park: <strong>$60</strong> · Glebe Tennis Court: <strong>$70</strong>. Available once per new client only.
+          </div>
+          <p>Trial lesson rates (court fully included): Waverley Park <strong>$80</strong> · Northbridge Park <strong>$60</strong> · Glebe Tennis Court <strong>$70</strong>. No additional fees apply.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Session Fees</div>
+          <p>All prices are fully inclusive — court booking is included in every rate. There are no separate court hire fees.</p>
+          <div style="font-size:0.78rem;font-weight:700;color:var(--green);margin:0.75rem 0 0.3rem;text-transform:uppercase;letter-spacing:0.05em;">1-on-1</div>
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:1rem;">
+            <thead>
+              <tr style="background:var(--green-pale);">
+                <th style="padding:0.5rem 0.75rem;text-align:left;border:1px solid #d4e0da;color:var(--green);">Session Type</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;color:var(--green);">⭐ Waverley</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;color:var(--green);">Northbridge</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;color:var(--green);">Glebe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;"><strong>Trial</strong> · 1hr · first session only</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$80</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$60</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$70</td></tr>
+              <tr><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;"><strong>Standard</strong> · 1hr · session 2+</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$130</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$100</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$110</td></tr>
+              <tr style="background:#fdf5f0;"><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;"><strong>4-session pack</strong> · per session · once per new client</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$110</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$80</td><td style="padding:0.5rem 0.75rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$90</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:0.78rem;font-weight:700;color:var(--clay);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.05em;">2–4 People</div>
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:0.75rem;">
+            <thead>
+              <tr style="background:#fdf0e8;">
+                <th style="padding:0.5rem 0.75rem;text-align:left;border:1px solid #f0d4c0;color:var(--clay);">Session Type</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;color:var(--clay);">⭐ Waverley</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;color:var(--clay);">Northbridge</th>
+                <th style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;color:var(--clay);">Glebe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;"><strong>Trial</strong> · 1hr · first session only</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$90</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$70</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$80</td></tr>
+              <tr><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;"><strong>Standard</strong> · 1hr · session 2+</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$150</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$120</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$130</td></tr>
+              <tr style="background:#faeee6;"><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;"><strong>4-session pack</strong> · per session · once per new group</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$130</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$100</td><td style="padding:0.5rem 0.75rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$110</td></tr>
+            </tbody>
+          </table>
+          <p>All prices are in AUD and GST-free. Court is fully included in every rate — no additional fees apply.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">4-Session Credit Pack — Full Terms</div>
+          <div class="callout callout-green">
+            <div class="callout-label">Best Value Package — Available Once Per New Client</div>
+            The 4-session credit pack is available to new clients once only. Pricing per session (court fully included): Waverley Park <strong>$110</strong> · Northbridge Park <strong>$80</strong> · Glebe Tennis Court <strong>$90</strong>. The pack is paid upfront in full via Stripe at the time of purchase.
+          </div>
+          <ul>
+            <li><strong>Availability:</strong> This package is available <strong>once per new client only</strong>. It cannot be purchased again by the same client after the initial pack is used or expires.</li>
+            <li><strong>Flexibility:</strong> Each credit may be used on any available day and time slot — book individually with at least 1 week advance notice per session.</li>
+            <li><strong>Court included:</strong> The session rate is fully all-inclusive. No separate court hire fee applies to any session redeemed under this pack.</li>
+            <li><strong>Upfront payment:</strong> The full pack is paid in one single Stripe payment at time of purchase. 1-on-1: Waverley $440 · Northbridge $320 · Glebe $360. 2–4 people: Waverley $520 · Northbridge $400 · Glebe $440.</li>
+            <li><strong>Expiry:</strong> All credits expire <strong>6 months from the date of purchase</strong>. Unused credits after this date are forfeited without refund.</li>
+            <li><strong>Non-transferable:</strong> Credits are personal to the purchasing client and cannot be transferred, gifted, or shared.</li>
+            <li><strong>Cancellation:</strong> Standard cancellation policy applies per session — more than 48 hours notice: credit restored to pack. Under 48 hours: credit forfeited. Medical certificate exception applies once per 6-month period.</li>
+            <li><strong>No cash refund:</strong> Purchased credits are non-refundable. Jack may at his sole discretion issue a partial refund for unused credits in exceptional circumstances.</li>
+          </ul>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Waiver Must Be Signed First</div>
+          <div class="callout callout-orange">
+            <div class="callout-label">Important — Required Before Payment</div>
+            The signed Liability Waiver and acceptance of these Terms & Conditions must be completed <strong>before payment is made and before the first session commences</strong>. Payment of a session fee without a completed waiver does not constitute acceptance of these Terms — Jack reserves the right to decline the session until the waiver is signed.
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Payment Always Before the Session — No Exceptions</div>
+          <div class="callout callout-orange">
+            <div class="callout-label">Strict Policy — Payment First, Lesson Second</div>
+            Payment must be made in full <strong>before every session, without exception</strong>. A session will not commence until payment has been received and confirmed. There is no pay-on-the-day or pay-after arrangement. This applies to all sessions including the trial lesson, regular sessions, packages and make-up sessions. The combined total (coaching + court hire) must be paid before the first session in the same way as any other session.
+          </div>
+          <p>Payment must be completed at the time of booking confirmation and no later than <strong>24 hours prior</strong> to the scheduled session start time. If payment has not been received by this deadline, the booking will be treated as unconfirmed and Jack reserves the right to release the court booking and offer the time slot to another client.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Payment Method — Stripe Only</div>
+          <p>All payments are processed exclusively through <strong>Stripe</strong>, a secure third-party payment platform. A payment link will be sent to the client at the time of booking confirmation. Clients must complete payment via the Stripe link before the session is confirmed.</p>
+          <ul>
+            <li><strong>Accepted cards:</strong> Visa, Mastercard, American Express</li>
+            <li><strong>Apple Pay / Google Pay:</strong> accepted via Stripe</li>
+            <li><strong>No cash, bank transfer, PayID or cheque</strong> — Stripe is the only accepted payment method</li>
+          </ul>
+          <p>By completing payment through Stripe, the client agrees to Stripe's own Terms of Service in addition to these Terms. Jack does not store card details — all payment data is handled securely by Stripe. A payment receipt will be automatically sent to the client's email address on file. Jack is not currently registered for GST — all session fees are GST-free unless otherwise stated.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Payment Authorisation & Capture — How It Works</div>
+          <div class="callout callout-green">
+            <div class="callout-label">Important — Your Payment Is Held, Not Charged Immediately</div>
+            When you complete payment via the Stripe link, your card is <strong>authorised</strong> — meaning the funds are reserved and held on your card but <strong>do not leave your account immediately</strong>. The payment will only be finalised (captured) once Jack has confirmed all session details are in order. This protects both parties.
+          </div>
+          <p>The authorisation and capture process works as follows:</p>
+          <ul>
+            <li><strong>Step 1 — Authorisation:</strong> Client completes payment via Stripe. The session amount is reserved on the client's card. No money leaves the client's account at this point. The client may see a pending transaction on their bank statement — this is normal.</li>
+            <li><strong>Step 2 — Jack's review:</strong> Jack reviews the booking to confirm the court is secured, the waiver has been signed, and all session details are confirmed.</li>
+            <li><strong>Step 3 — Capture (payment finalised):</strong> Once Jack approves the booking, the payment is captured and the funds are transferred. Jack will aim to capture payment no later than <strong>24 hours before the session</strong>.</li>
+            <li><strong>Step 4 — Cancellation of authorisation:</strong> If Jack is unable to confirm the session for any reason (e.g. court unavailability, incomplete waiver), the authorisation will be cancelled and no funds will be charged. The hold on the client's card will be released, typically within 3–5 business days depending on the client's bank.</li>
+          </ul>
+          <div class="callout callout-orange">
+            <div class="callout-label">Authorisation Expiry</div>
+            Payment authorisations expire after <strong>7 days</strong> if not captured. If a booking is made more than 7 days in advance, Jack may need to re-send the payment link closer to the session date. Jack will notify the client if this is required. It is the client's responsibility to complete the re-authorisation promptly to secure their booking.
+          </div>
+          <p>A Stripe payment receipt will be sent automatically once payment is captured. Jack does not store card details — all payment data is handled securely by Stripe in accordance with PCI-DSS standards.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Session Packages</div>
+          <p>The current session package offered is the <strong>4-session credit pack at $90 per session ($360 total)</strong>. The full package fee is payable upfront via Stripe. Credits are personal to the purchasing client, non-transferable, and expire 6 months from the date of purchase. Unused credits beyond the expiry date will be forfeited without refund. Each credit is redeemed by booking an individual session with at least 1 week advance notice. Court hire is charged separately per session at the applicable venue rate.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Pricing Changes</div>
+          <p>Jack reserves the right to adjust session fees at any time. Any pricing changes will be communicated to existing clients with a minimum of 14 days' notice and will not apply retrospectively to pre-paid sessions or packages already purchased.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Cancellation & Rescheduling -->
+    <div class="tc-section" id="s4">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">4</div>
+        <div class="section-title">Cancellation & Rescheduling</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Cancellation Policy</div>
+          <div class="callout callout-orange">
+            <div class="callout-label">Key Policy — Please Read Carefully</div>
+            Cancellations with <strong>more than 48 hours notice</strong> receive a full refund via Stripe. Cancellations with <strong>less than 48 hours notice</strong> receive no refund. No exceptions apply unless Jack agrees otherwise in writing or the Medical Certificate policy below applies.
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">How to Cancel or Reschedule</div>
+          <p>Cancellation or rescheduling requests must be made directly to Jack via SMS, phone call, or email. Requests made via third-party platforms, social media or any other channel will not be accepted as valid notice. The notice period begins from the time Jack acknowledges receipt of the request in writing.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Cancellation & Rescheduling Schedule</div>
+          <table class="cancel-table">
+            <thead>
+              <tr>
+                <th>Notice Given</th>
+                <th>Cancellation</th>
+                <th>Rescheduling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>More than 48 hours</strong></td>
+                <td><span class="badge-green">Full refund via Stripe</span></td>
+                <td><span class="badge-green">Free — no fee</span></td>
+              </tr>
+              <tr>
+                <td><strong>Less than 48 hours</strong></td>
+                <td><span class="badge-red">No refund</span></td>
+                <td><span class="badge-red">No refund — reschedule at Jack's discretion</span></td>
+              </tr>
+              <tr>
+                <td><strong>No-show (no notice given)</strong></td>
+                <td><span class="badge-red">No refund — full fee forfeited</span></td>
+                <td><span class="badge-red">Not applicable</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Medical or Illness Cancellations — Within 24 Hours</div>
+          <div class="callout callout-green">
+            <div class="callout-label">Medical Certificate Exception</div>
+            If a client is unable to attend a session due to genuine illness and provides a valid <strong>medical certificate or doctor's note dated the same day as the missed session</strong>, a full session credit will be issued regardless of the notice period. This exception exists to protect clients who become unexpectedly unwell — even within the 48-hour no-refund window.
+          </div>
+          <p>The following conditions apply to this exception:</p>
+          <ul>
+            <li><strong>Documentation required:</strong> A valid medical certificate or doctor's note must be submitted to Jack within <strong>24 hours of the scheduled session start time</strong>. Pharmacy receipts or general "feeling unwell" messages are not sufficient — a medical certificate from a registered GP or medical centre is required.</li>
+            <li><strong>Credit issued:</strong> A full session credit (make-up lesson) will be issued. This is not a cash refund — the credit may be applied to any future session within 3 months of the missed session date.</li>
+            <li><strong>Court hire cost:</strong> The court hire fee is non-recoverable. Court hire costs already incurred by Jack will not be reimbursed and will be absorbed by Jack in this case.</li>
+            <li><strong>Frequency limit:</strong> This medical exception applies <strong>once per client per 6-month period</strong>. A second medical cancellation within the same 6-month window will be assessed at Jack's sole discretion. This limit exists to maintain fairness and prevent misuse of the policy.</li>
+            <li><strong>No cash refund:</strong> Even with a valid medical certificate, the remedy is a session credit only — not a cash refund via Stripe.</li>
+          </ul>
+          <p>Jack reserves the right to decline a medical credit claim if the documentation provided does not appear genuine or was not submitted within the required timeframe.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Repeated Short-Notice Cancellations</div>
+          <p>Where a client cancels with less than 48 hours notice on more than two occasions within any 3-month period, Jack reserves the right to require pre-payment of two sessions in advance before confirming any further bookings for that client.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Refund Policy -->
+    <div class="tc-section" id="s5">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">5</div>
+        <div class="section-title">Refund Policy</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Eligible Refunds</div>
+          <p>A <strong>full cash refund via Stripe</strong> will be issued where:</p>
+          <ul>
+            <li>Client cancels with <strong>more than 48 hours notice</strong> prior to the scheduled session</li>
+            <li>Jack cancels the session for any reason and is unable to offer a make-up within 30 days</li>
+          </ul>
+          <p>A <strong>session credit (make-up lesson)</strong> will be issued where:</p>
+          <ul>
+            <li>Jack cancels the session for weather, illness or circumstances beyond his control and a make-up is available within 30 days</li>
+            <li>The session is interrupted by unplayable weather conditions — see Section 7 for credit amounts</li>
+            <li>The session cannot proceed due to court closure or unavailability where Jack is unable to secure an alternative court</li>
+            <li>Client provides a valid medical certificate within 24 hours of the missed session (see Section 4 — Medical Exception)</li>
+          </ul>
+          <div class="callout callout-green">
+            <div class="callout-label">Session Credit Expiry</div>
+            All session credits expire <strong>3 months from the date of issue</strong>. Credits are non-transferable, not redeemable for cash, and cannot be applied to session packages.
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Non-Refundable Circumstances</div>
+          <p>No refund will be issued in the following circumstances:</p>
+          <ul>
+            <li>Cancellation with less than 72 hours notice for any reason other than those listed above</li>
+            <li>Client no-show — full session fee is forfeited</li>
+            <li>Client arrives late and session cannot be completed in the remaining time</li>
+            <li>Client is asked to leave a session due to breach of the Code of Conduct (see Section 8)</li>
+            <li>Expired unused sessions from a pre-paid package</li>
+          </ul>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Refund Processing</div>
+          <p>Where a refund is approved, it will be processed via Stripe back to the original card or payment method used. Stripe refunds typically appear within <strong>5–10 business days</strong> depending on the client's bank. Jack will confirm the refund in writing once initiated. Note that Stripe processing fees may not be recoverable in all cases.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Consumer Guarantees</div>
+          <p>Nothing in this refund policy limits or excludes any rights you have under the Australian Consumer Law, including the right to a remedy where services are not delivered as agreed or do not meet acceptable quality standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Late Arrivals & No-Shows -->
+    <div class="tc-section" id="s6">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">6</div>
+        <div class="section-title">Late Arrivals & No-Shows</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Late Arrivals</div>
+          <p>Sessions begin at the scheduled start time regardless of client arrival. If a client arrives late, the session will run for the remaining time only — the session end time will not be extended. No partial refund or credit is available for time lost due to a client's late arrival.</p>
+          <p>Jack will wait at the court for a maximum of <strong>15 minutes</strong> past the scheduled start time before treating the session as a no-show. This wait time may be extended by mutual agreement negotiated with Jack on the day — contact Jack directly if you are running late.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">No-Shows</div>
+          <p>If a client does not attend a booked session and has not provided any prior notice, the session is treated as a no-show. The full session fee will be forfeited with no refund or credit issued. Jack will send one notification to confirm the no-show before leaving the venue.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Coach Late Arrival</div>
+          <p>If Jack is running late, he will notify the client as soon as possible. If Jack is more than 15 minutes late and has not provided prior notice, the client is entitled to a full refund or a free reschedule at their choice.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Weather -->
+    <div class="tc-section" id="s7">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">7</div>
+        <div class="section-title">Weather & Court Conditions</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Venue Wet Weather Policies — Waverley Park, Northbridge Park & Glebe Tennis Court</div>
+          <p>All three coaching venues (Waverley Park, Northbridge Park, and Glebe Tennis Court) are outdoor facilities and do not offer refunds for wet weather court hire — they issue <strong>credit notes</strong> for court bookings when courts are deemed unplayable. Jack's wet weather policy mirrors this approach: <strong>no cash refunds are issued for weather-affected sessions — a session credit (make-up lesson) is provided instead.</strong></p>
+          <div class="callout callout-green">
+            <div class="callout-label">How you will be notified</div>
+            Jack will assess conditions before every session and will <strong>contact you directly via SMS or phone call</strong> if the session is deemed unplayable. Do not assume a session is cancelled due to rain unless you have received direct notification from Jack. If you have not heard from Jack, assume the session is going ahead. This is consistent with the notification approach used by all three approved venues.
+          </div>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Who Decides If It Is Unplayable</div>
+          <p>Jack has <strong>sole discretion</strong> to determine whether weather or court conditions are unplayable. Relevant factors include active rainfall, standing water on the court surface, lightning within the area, extreme wind, or a court closure notice issued by the venue. A client's personal preference not to play in light drizzle does not constitute unplayable conditions — if Jack deems it playable and attends, the session is considered confirmed and no credit will be issued for client non-attendance.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Session Cancelled Before It Starts — Full Credit</div>
+          <p>If Jack determines conditions are unplayable <strong>before the session commences</strong> and notifies the client, a <strong>full session credit</strong> will be issued. This credit is redeemable as a make-up lesson at a mutually agreed future time. No cash refund will be issued. Jack will make this call and notify the client as early as possible — ideally at least 2 hours before the scheduled start time.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Session Interrupted After It Has Started</div>
+          <p>If a session has commenced but is cut short due to weather, the following applies:</p>
+          <ul>
+            <li><strong>Less than 20 minutes completed</strong> — full session credit issued (make-up lesson)</li>
+            <li><strong>Between 20 and 40 minutes completed</strong> — Jack will use his sole discretion to determine whether a partial credit or a make-up reschedule is appropriate, taking into account the amount of coaching delivered and the nature of the interruption. Jack's decision is final.</li>
+            <li><strong>More than 40 minutes of a 60-minute session completed</strong> — session is considered complete. No credit or reschedule will be issued.</li>
+          </ul>
+          <p>All credits issued under this clause are for make-up coaching sessions only and are not redeemable for cash. Credits expire 3 months from the date of issue if not used.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Extreme Heat</div>
+          <p>During periods of extreme heat (above 38°C or where the Bureau of Meteorology has issued a heat health alert for Sydney), Jack reserves the right to shorten, modify or cancel sessions for the safety of both parties. The same credit policy applies as for wet weather — no cash refunds, session credits or make-up lessons offered on a pro-rated basis at Jack's discretion.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Lightning</div>
+          <p>In the event of lightning within the immediate area, the session will be suspended immediately and both parties must leave the court. This is a strict safety requirement at all approved venues. If a session is suspended due to lightning and cannot resume within the remaining booked time, the interrupted session credit policy above applies.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Code of Conduct -->
+    <div class="tc-section" id="s8">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">8</div>
+        <div class="section-title">Code of Conduct</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Expected Behaviour</div>
+          <p>All clients are expected to conduct themselves in a respectful and courteous manner at all times, including toward Jack, other court users, venue staff, and members of the public. By booking a session you agree to the following standards:</p>
+          <ul>
+            <li>Treat the coach and all others with respect — aggressive, abusive or threatening behaviour will not be tolerated under any circumstances</li>
+            <li>Arrive on time, appropriately dressed, and ready to participate</li>
+            <li>Follow all safety instructions given by the coach without argument during the session</li>
+            <li>Do not pressure or attempt to influence the coach to deviate from the planned session in ways that may increase injury risk</li>
+            <li>Do not attend a session under the influence of alcohol or any substance</li>
+            <li>Disclose any new injury or physical limitation before every session</li>
+            <li>Respect court rules and the property of the venue</li>
+          </ul>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Right to Terminate a Session</div>
+          <p>Jack reserves the right to terminate a session immediately and without refund if a client: behaves in an abusive, aggressive or threatening manner; refuses to follow safety instructions; attends under the influence of alcohol or substances; or engages in conduct that endangers themselves, the coach or others.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Right to Refuse Future Bookings</div>
+          <p>Jack reserves the right to refuse future bookings from any client whose conduct has been deemed unacceptable, without obligation to provide a reason. Any pre-paid sessions remaining at the time of refusal will be refunded.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Health & Safety -->
+    <div class="tc-section" id="s9">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">9</div>
+        <div class="section-title">Health & Safety</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Medical Disclosure Obligation</div>
+          <p>Clients must disclose all pre-existing injuries, medical conditions, physical limitations and any relevant health history to Jack before their first session, and must notify Jack of any new injuries or changes to their health status before each subsequent session. Failure to disclose a relevant medical condition that contributes to an injury during a session may impact any claim the client might otherwise have.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Fitness to Participate</div>
+          <p>By attending a session, the client confirms they are physically fit and medically cleared to participate in moderate to vigorous physical activity. If a client has any doubt about their fitness to participate, they should obtain medical clearance from their doctor before commencing sessions. Jack reserves the right to decline to coach a client who in his judgement appears unfit to safely participate.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Appropriate Attire</div>
+          <p>Clients must wear appropriate non-marking sports footwear at all times on court. Inappropriate footwear (including thongs, sandals, bare feet or marking-sole shoes) is not permitted and the session may not proceed if a client arrives wearing footwear that is unsuitable or unsafe. No refund will be issued in this circumstance.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Hydration</div>
+          <p>Clients are required to bring sufficient water to every session, particularly during warmer months. Jack is not responsible for providing water or other refreshments. Sessions held in warm conditions will include adequate rest and hydration breaks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Coach's Right to Cancel -->
+    <div class="tc-section" id="s10">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">10</div>
+        <div class="section-title">Coach's Right to Cancel</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Circumstances for Coach Cancellation</div>
+          <p>Jack reserves the right to cancel a booked session in the following circumstances:</p>
+          <ul>
+            <li>Personal illness or injury preventing safe coaching</li>
+            <li>Family emergency</li>
+            <li>Unsafe weather or court conditions</li>
+            <li>Court unavailability due to venue closure or force majeure</li>
+            <li>Any other circumstances genuinely beyond Jack's control</li>
+          </ul>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Notice & Remedy</div>
+          <p>Jack will provide as much notice as possible of any cancellation. Where Jack cancels a session for any reason, the client will receive:</p>
+          <ul>
+            <li><strong>First:</strong> a free make-up session credit to be used within 3 months of the original session date, or</li>
+            <li><strong>If no make-up can be offered within 30 days:</strong> a full cash refund via Stripe to the original payment method</li>
+          </ul>
+          <p>This is consistent with the Refund Policy in Section 5. No further compensation beyond a session credit or refund is payable by Jack for a cancelled session.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Photography & Video -->
+    <div class="tc-section" id="s11">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">11</div>
+        <div class="section-title">Photography & Video</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Coaching Footage</div>
+          <p>Jack may occasionally film short video clips of a client during a session for the purpose of technique analysis and coaching feedback. This footage will be shared directly with the client only and will not be posted publicly without the client's explicit written consent.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Promotional Use</div>
+          <p>Jack will not use any photos or video of a client for promotional, social media or marketing purposes without obtaining separate, specific written consent from the client beforehand. Clients may withdraw consent for promotional use at any time by notifying Jack in writing.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Client Recording</div>
+          <p>Clients are welcome to record their own sessions for personal coaching review. Recordings of sessions may not be shared publicly, posted to social media, or used in any commercial context without Jack's written consent.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Privacy -->
+    <div class="tc-section" id="s12">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">12</div>
+        <div class="section-title">Privacy</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Information Collected</div>
+          <p>Jack collects personal information from clients including name, date of birth, contact details, emergency contact details, medical information and payment details solely for the purpose of providing tennis coaching services, maintaining session records, and communicating with clients.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">How Information Is Used</div>
+          <p>Personal information collected will only be used for the purposes for which it was provided. It will not be sold, shared or disclosed to third parties except where required by law or where necessary to provide the service (e.g. court booking). Session notes and health information are stored securely and retained for a minimum of 3 years for legal and insurance purposes.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Access & Correction</div>
+          <p>Clients have the right to request access to, or correction of, their personal information at any time by contacting Jack directly. Requests will be responded to within 14 days.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Governing Law -->
+    <div class="tc-section" id="s13">
+      <div class="section-head" onclick="toggle(this)">
+        <div class="section-num">13</div>
+        <div class="section-title">Governing Law & Disputes</div>
+        <div class="section-toggle">▾</div>
+      </div>
+      <div class="section-body">
+        <div class="clause">
+          <div class="clause-title">Governing Law</div>
+          <p>These Terms and Conditions are governed by and construed in accordance with the laws of New South Wales, Australia. Both parties submit to the non-exclusive jurisdiction of the courts of New South Wales.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Dispute Resolution</div>
+          <p>In the event of any dispute arising out of or in connection with these Terms or a coaching session, the parties agree to first attempt to resolve the matter informally by communicating directly with each other in good faith. If the dispute cannot be resolved informally within 14 days, either party may escalate the matter through NSW Fair Trading or other applicable dispute resolution mechanisms.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Severability</div>
+          <p>If any provision of these Terms is found to be invalid, unenforceable or illegal, that provision will be severed and the remaining Terms will continue in full force and effect.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Updates to These Terms</div>
+          <p>Jack reserves the right to update these Terms & Conditions at any time. Updated Terms will be published and clients will be notified. Continued booking of sessions after notification constitutes acceptance of the updated Terms.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Entire Agreement</div>
+          <p>These Terms & Conditions together with the signed Liability Waiver constitute the entire agreement between Jack and the client in respect of coaching services. They supersede all prior discussions, representations or arrangements.</p>
+        </div>
+        <div class="clause">
+          <div class="clause-title">Contact Details</div>
+          <p>For all booking enquiries, cancellations, complaints, or questions about these Terms, contact Jack directly:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#a1cbc0c2cac9c490939195e1c6ccc0c8cd8fc2cecc" style="color:var(--green);"><span class="__cf_email__" data-cfemail="42282321292a277370727602252f232b2e6c212d2f">[email&#160;protected]</span></a></li>
+            <li><strong>Phone / SMS:</strong> 0426 752 877</li>
+            <li><strong>Location:</strong> Eastern Suburbs, Sydney NSW</li>
+            <li><strong>Response time:</strong> Jack will respond to all formal enquiries within 2 business days</li>
+          </ul>
+          <p>For formal dispute notices, contact must be made in writing via email. Verbal communications will not constitute formal notice under these Terms.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCEPTANCE -->
+    <div class="acceptance">
+      <h3>Ready to Book?</h3>
+      <p>By proceeding to payment you confirm you have read and agree to these Terms & Conditions in full. You must also complete the Liability Waiver before your first session.</p>
+      <a class="btn-waiver" href="waiver.html">Sign Waiver & Proceed</a>
+      <div class="version-note">Jack Tennis Coaching · Eastern Suburbs Sydney NSW · Terms v1.0 · March 2026 · These terms do not constitute legal advice · Contact: [<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="503a31333b10353d31393c7e333f3d">[email&#160;protected]</a>]</div>
+    </div>
+
+  </main>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggle(head) {
+    const body = head.nextElementSibling;
+    const arrow = head.querySelector('.section-toggle');
+    const isCollapsed = body.classList.toggle('collapsed');
+    arrow.style.transform = isCollapsed ? 'rotate(-90deg)' : 'rotate(0deg)';
+  }
+
+  // Highlight active TOC item on scroll
+  const sections = document.querySelectorAll('.tc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+<!-- Floating scroll/waiver arrow -->
+<div class="float-arrow" id="floatArrow" onclick="handleArrowClick()" title="Scroll down">
+  <span class="float-arrow-label" id="floatLabel">Keep scrolling ↓</span>
+  <div class="float-arrow-btn" id="floatBtn">
+    <!-- Down arrow icon -->
+    <svg id="arrowIconDown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    <!-- Right arrow icon (hidden until bottom) -->
+    <svg id="arrowIconRight" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+  </div>
+</div>
+
+<script>
+  let reachedBottom = false;
+
+  function handleArrowClick() {
+    if (reachedBottom) {
+      window.location.href = 'jack-coaching-waiver.html';
+    } else {
+      // Scroll down one viewport height
+      window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 100;
+
+    // Progress bar
+    const fill = document.getElementById('tcReadFill');
+    if (fill) fill.style.width = pct + '%';
+
+    // Arrow label — show how far through
+    const label = document.getElementById('floatLabel');
+    const btn = document.getElementById('floatBtn');
+    const downIcon = document.getElementById('arrowIconDown');
+    const rightIcon = document.getElementById('arrowIconRight');
+    const arrow = document.getElementById('floatArrow');
+
+    if (pct >= 95 && !reachedBottom) {
+      reachedBottom = true;
+      // Flip to waiver arrow
+      if (label) {
+        label.textContent = 'Sign Waiver →';
+        label.style.background = 'var(--green)';
+      }
+      if (btn) btn.style.background = 'var(--green)';
+      if (downIcon) downIcon.st
