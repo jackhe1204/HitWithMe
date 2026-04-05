@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Trial — Start Tennis Sydney</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #1a7a54; --green-light: #24a870; --green-pale: #e6f7f0;
+    --clay: #c8541a; --clay-light: #f4784a;
+    --dark: #0e1a14; --mid: #2b3d33; --muted: #6b7f74;
+    --off-white: #f7f9f7; --white: #ffffff;
+  }
+  body { font-family: 'Lato', sans-serif; background: var(--off-white); color: var(--dark); min-height: 100vh; }
+
+  /* NAV */
+  nav { background: var(--dark); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .back-link { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .back-link:hover { color: var(--clay-light); }
+
+  /* PROGRESS BAR */
+  .progress-wrap { background: var(--dark); padding: 0 2rem 1.25rem; }
+  .progress-steps { display: flex; gap: 0; max-width: 700px; margin: 0 auto; }
+  .progress-step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; position: relative; }
+  .progress-step:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: 50%; width: 100%; height: 2px; background: rgba(255,255,255,0.1); z-index: 0; }
+  .progress-step.done:not(:last-child)::after { background: var(--green); }
+  .step-circle { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 800; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); position: relative; z-index: 1; transition: all 0.3s; }
+  .progress-step.active .step-circle { background: var(--clay); color: white; }
+  .progress-step.done .step-circle { background: var(--green); color: white; }
+  .step-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-align: center; }
+  .progress-step.active .step-label { color: var(--clay-light); }
+  .progress-step.done .step-label { color: rgba(255,255,255,0.6); }
+
+  /* PANELS */
+  .panel { display: none; max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  .panel.active { display: block; }
+  .panel-header { text-align: center; margin-bottom: 2rem; }
+  .panel-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.5rem; }
+  .panel-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; text-transform: uppercase; color: var(--dark); line-height: 1.05; margin-bottom: 0.6rem; }
+  .panel-sub { font-size: 0.88rem; color: var(--muted); line-height: 1.75; max-width: 500px; margin: 0 auto; }
+
+  /* TC SCROLL BOX */
+  .scroll-box { background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); height: 400px; overflow-y: auto; padding: 1.5rem; margin-bottom: 1rem; font-size: 0.82rem; color: var(--mid); line-height: 1.8; position: relative; }
+  .scroll-box h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 800; text-transform: uppercase; color: var(--dark); margin: 1.25rem 0 0.5rem; }
+  .scroll-box h3:first-child { margin-top: 0; }
+  .scroll-box p { margin-bottom: 0.75rem; }
+  .scroll-box ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+  .scroll-box li { margin-bottom: 0.3rem; }
+  .scroll-hint { text-align: center; font-size: 0.72rem; color: var(--muted); margin-bottom: 1rem; }
+  .scroll-hint.hidden { display: none; }
+
+  /* WAIVER */
+  .waiver-box { background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .waiver-box p { font-size: 0.84rem; color: var(--mid); line-height: 1.8; margin-bottom: 0.75rem; }
+  .sig-area { border: 1.5px dashed rgba(0,0,0,0.2); border-radius: 8px; background: var(--off-white); padding: 0.75rem; margin-top: 1rem; }
+  .sig-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  canvas { width: 100%; height: 120px; cursor: crosshair; background: white; border-radius: 5px; touch-action: none; display: block; }
+  .sig-actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; align-items: center; }
+  .sig-clear { font-size: 0.72rem; color: var(--muted); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; }
+  .typed-sig { width: 100%; padding: 0.6rem 0.85rem; border: 1px solid rgba(0,0,0,0.12); border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 0.88rem; color: var(--dark); background: white; outline: none; }
+  .typed-sig:focus { border-color: var(--green); }
+
+  /* CALENDARS */
+  .cal-wrap { background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); overflow: hidden; margin-bottom: 1rem; }
+  .cal-header { background: var(--green); padding: 0.65rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .cal-header span { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; }
+  .cal-legend { display: flex; gap: 1rem; }
+  .cal-legend-item { font-size: 0.62rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.3rem; }
+  .cal-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .cal-frame { width: 100%; display: block; border: 0; }
+
+  /* FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media(max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .field input, .field select, .field textarea { padding: 0.65rem 0.85rem; border: 1.5px solid rgba(0,0,0,0.12); border-radius: 7px; font-family: 'Lato', sans-serif; font-size: 0.88rem; color: var(--dark); background: white; outline: none; transition: border-color 0.2s; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .form-card { background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 1rem; }
+
+  /* VENUE PAYMENT */
+  .venue-cards { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1rem; }
+  .venue-pay-card { background: white; border-radius: 12px; border: 1.5px solid rgba(0,0,0,0.08); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: border-color 0.2s, transform 0.15s; text-decoration: none; }
+  .venue-pay-card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .venue-pay-card.unavailable { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+  .venue-name-big { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; text-transform: uppercase; color: var(--dark); }
+  .venue-addr-small { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+  .venue-price-big { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--green); line-height: 1; text-align: right; }
+  .venue-price-note { font-size: 0.65rem; color: var(--muted); text-align: right; }
+  .venue-badge-wrap { margin-bottom: 0.3rem; }
+  .venue-priority { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); }
+
+  /* BUTTONS */
+  .btn-next { display: block; width: 100%; padding: 0.9rem; border-radius: 7px; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+  .btn-next:hover:not(:disabled) { opacity: 0.88; transform: translateY(-2px); }
+  .btn-green { background: var(--green); color: white; }
+  .btn-clay { background: var(--clay); color: white; }
+  .btn-next:disabled { background: rgba(0,0,0,0.1); color: var(--muted); cursor: not-allowed; transform: none; }
+  .btn-back { background: transparent; border: 1.5px solid rgba(0,0,0,0.15); color: var(--muted); margin-bottom: 0.75rem; }
+  .btn-back:hover { background: rgba(0,0,0,0.04); color: var(--dark); }
+  .btn-row { display: flex; flex-direction: column; gap: 0; }
+
+  /* INFO BOX */
+  .info-box { background: var(--green-pale); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--mid); line-height: 1.7; }
+  .info-box strong { color: var(--green); }
+
+  /* STEP INDICATOR */
+  .step-note { text-align: center; font-size: 0.72rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+  @media(max-width: 768px) {
+    nav { padding: 0.85rem 1rem; }
+    .panel { padding: 1.5rem 1rem 3rem; }
+    .progress-wrap { padding: 0 1rem 1rem; }
+    .step-label { display: none; }
+    .form-grid { grid-template-columns: 1fr; }
+    .venue-pay-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .venue-price-big { font-size: 1.5rem; }
+    canvas { height: 100px; }
+    #venues-solo .venue-cards, #venues-group .venue-cards { flex-direction: column; }
+    div[style*="display:flex;gap:0;background"] { width: 100%; }
+    #tab1on1, #tab24 { flex: 1; text-align: center; }
+  }
+  @media(max-width: 480px) {
+    .progress-step:not(:last-child)::after { display: none; }
+    .step-circle { width: 24px; height: 24px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://starttennissydney.com">
+    <svg width="140" height="28" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="20" fill="#c8541a"/>
+      <path d="M3 22 Q22 10 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <path d="M3 22 Q22 34 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <text x="52" y="17" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="white">START</text>
+      <line x1="52" y1="20" x2="208" y2="20" stroke="rgba(255,255,255,0.15)" stroke-width="0.75"/>
+      <text x="52" y="34" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#f4784a">TENNIS SYDNEY</text>
+    </svg>
+  </a>
+  <a href="https://starttennissydney.com" class="back-link">← Back to site</a>
+</nav>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-steps" id="progressSteps">
+    <div class="progress-step active" id="ps1"><div class="step-circle">1</div><div class="step-label">T&amp;C</div></div>
+    <div class="progress-step" id="ps2"><div class="step-circle">2</div><div class="step-label">Waiver</div></div>
+    <div class="progress-step" id="ps3"><div class="step-circle">3</div><div class="step-label">Availability</div></div>
+    <div class="progress-step" id="ps4"><div class="step-circle">4</div><div class="step-label">Your Details</div></div>
+    <div class="progress-step" id="ps5"><div class="step-circle">5</div><div class="step-label">Payment</div></div>
+  </div>
+</div>
+
+<!-- STEP 1 — TERMS & CONDITIONS -->
+<div class="panel active" id="step1">
+  <div class="panel-header">
+    <div class="panel-eyebrow">Step 1 of 6</div>
+    <div class="panel-title">Terms &amp; Conditions</div>
+    <p class="panel-sub">Please read and scroll through the full terms before proceeding. You must reach the bottom to continue.</p>
+  </div>
+  <div class="scroll-box" id="tcScroll">
+    <h3>1. Services & Trial-First Policy</h3>
+    <p>Start Tennis Sydney offers private and small-group tennis coaching for adults (18+) of beginner to early-intermediate ability. All new clients must complete a trial session before accessing standard sessions or the 4-session pack. The trial is the entry point to all coaching services.</p>
+    <p>1-on-1 trial clients receive an exclusive free 15-minute discovery call with Jack prior to their on-court session. Group trial clients (2–4 people) do not receive the discovery call.</p>
+
+    <h3>2. Payment — Stripe Only, Always Before the Session</h3>
+    <p>Payment must be completed in full via Stripe before any session time is confirmed. Clients cannot schedule their session until payment has been received. There is no pay-on-the-day, pay-after, or reserve-now-pay-later arrangement.</p>
+    <p>After payment is confirmed, Jack will personally send a confirmation page containing Cal.com scheduling links for the discovery call and on-court session. All payments are processed exclusively through Stripe. No cash, bank transfer, PayID or cheque is accepted.</p>
+
+    <h3>3. Pricing — All-Inclusive</h3>
+    <p>All session rates are fully all-inclusive. The price you see is the total you pay — no separate court hire, no hidden fees. Trial rates: Waverley Park $90 · Northbridge Park $70. Standard: Waverley $130 · Northbridge $110. 4-session pack: Waverley $110 · Northbridge $90 per session. Group rates vary by group size — see starttennissydney.com for full pricing.</p>
+
+    <h3>4. Venues</h3>
+    <p>Sessions are held at Waverley Park (Cnr Goldie Avenue & James Street, NSW 2022) or Northbridge Park & Memorial Reserve (Sailors Bay Road, Northbridge NSW 2063). Jack arranges all court bookings — clients do not need to book the court separately. Venue is confirmed in writing before payment is due.</p>
+
+    <h3>5. Cancellation Policy</h3>
+    <p><strong>More than 48 hours notice:</strong> Full cash refund via Stripe.</p>
+    <p><strong>Less than 48 hours notice:</strong> No refund. No exceptions unless a valid GP medical certificate is provided within 24 hours of the missed session — in which case a session credit (valid 3 months) is issued. This exception applies once per 6-month period.</p>
+    <p><strong>No-show:</strong> Full session fee forfeited. No refund or credit issued.</p>
+    <p><strong>Jack cancels:</strong> If Jack cancels and cannot offer a make-up session within 30 days, a full Stripe refund is issued.</p>
+
+    <h3>6. Late Arrivals</h3>
+    <p>Jack will wait up to 15 minutes for a late client. The session will not be extended. If a client has not arrived within 15 minutes without prior notice, the session may be treated as a no-show at Jack's discretion.</p>
+
+    <h3>7. Group Size Flexibility (2–4 People)</h3>
+    <p>Clients may attend with fewer people than originally booked. Price adjusts to actual attendance if 48 hours notice is given. If only 1 person attends a group booking, the 1-on-1 standard rate applies. No adjustment is made for unannounced no-shows within the group.</p>
+
+    <h3>8. 4-Session Credit Pack</h3>
+    <p>The 4-session pack is available once per new client or group only. Credits expire 6 months from purchase and are non-transferable. Standard cancellation policy applies per session credit. Credits are non-refundable except at Jack's sole discretion in exceptional circumstances.</p>
+
+    <h3>9. Weather Cancellations</h3>
+    <p>If conditions are deemed unplayable by Jack, no cash refund is issued — a session credit (make-up lesson) is provided instead. Jack will notify clients as early as possible via SMS if a session is cancelled due to weather.</p>
+
+    <h3>10. Health & Safety</h3>
+    <p>By proceeding, you confirm you are aged 18 or over, physically capable of participating in recreational tennis, and have disclosed any relevant medical conditions or injuries to Jack prior to your first session. Jack holds current ATPCA coaching insurance including Public Liability and Professional Indemnity coverage.</p>
+
+    <h3>11. Privacy</h3>
+    <p>Personal information collected (name, date of birth, contact details, tennis background) is used solely for the purpose of providing coaching services. It is not shared with third parties except where required by law. Data is stored securely and may be used to send session reminders or booking confirmations.</p>
+
+    <h3>12. Governing Law</h3>
+    <p>These terms are governed by the laws of New South Wales, Australia. By proceeding you agree to these terms in full. These terms were last updated April 2026.</p>
+    <p style="color:var(--muted);font-size:0.75rem;margin-top:1.5rem;">— End of Terms & Conditions —</p>
+  </div>
+  <p class="scroll-hint" id="scrollHint">↓ Scroll to the bottom to continue</p>
+  <button class="btn-next btn-green" id="btnStep1" onclick="goTo(2)" disabled>I've Read & Understood — Continue →</button>
+</div>
+
+<!-- STEP 2 — READ WAIVER -->
+<div class="panel" id="step2">
+  <div class="panel-header">
+    <div class="panel-eyebrow">Step 2 of 5</div>
+    <div class="panel-title">Liability Waiver</div>
+    <p class="panel-sub">Please read the full waiver below before proceeding. You must scroll to the bottom to continue.</p>
+  </div>
+  <div class="scroll-box" id="waiverScroll">
+    <p>I, the undersigned, voluntarily agree to participate in tennis coaching sessions provided by Jack He trading as <strong>Start Tennis Sydney</strong> (ABN registered, NSW). I acknowledge and agree to the following:</p>
+    <p><strong>1. Assumption of Risk:</strong> I understand that tennis is a physical activity that carries inherent risks of injury, including but not limited to sprains, strains, fractures, and other physical injuries. I voluntarily accept these risks.</p>
+    <p><strong>2. Release of Liability:</strong> To the fullest extent permitted by law (including the Civil Liability Act 2002 (NSW)), I release and discharge Jack He and Start Tennis Sydney from any and all claims, demands, or causes of action arising from participation in coaching sessions, except where caused by gross negligence or wilful misconduct.</p>
+    <p><strong>3. Medical Fitness:</strong> I confirm I am physically fit to participate in tennis coaching and have disclosed any relevant medical conditions, injuries, or limitations to Jack prior to my first session. I accept sole responsibility for any undisclosed conditions.</p>
+    <p><strong>4. Emergency Medical Treatment:</strong> In the event of a medical emergency, I consent to Jack or emergency services providing or arranging any necessary medical treatment on my behalf.</p>
+    <p><strong>5. Australian Consumer Law:</strong> Nothing in this waiver excludes, restricts or modifies any rights or remedies I may have under the Australian Consumer Law (Schedule 2 of the Competition and Consumer Act 2010 (Cth)) that cannot be excluded, restricted or modified by agreement.</p>
+    <p><strong>6. Electronic Signature:</strong> I understand that my electronic signature below constitutes a legally binding agreement under the Electronic Transactions Act 1999 (Cth) and the Electronic Transactions Act 2000 (NSW).</p>
+    <p style="color:var(--muted);font-size:0.75rem;margin-top:1.5rem;">— End of Liability Waiver —</p>
+  </div>
+  <p class="scroll-hint" id="waiverHint">↓ Scroll to the bottom to sign</p>
+  <div class="sig-area" id="sigArea" style="border:1.5px dashed rgba(0,0,0,0.2);border-radius:8px;background:var(--off-white);padding:0.75rem;margin:1rem 0;">
+    <div class="sig-label" style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">✍ Draw your signature below to accept <span id="sigRequired" style="color:#e24b4a;margin-left:4px;">— Required</span><span id="sigDone" style="color:var(--green);margin-left:4px;display:none;">— ✓ Signed</span></div>
+    <canvas id="sigCanvas" width="700" height="120"></canvas>
+    <div class="sig-actions">
+      <button class="sig-clear" onclick="clearSig()">Clear signature</button>
+    </div>
+  </div>
+  <div class="info-box"><strong>Note:</strong> Scroll through the full waiver, then draw your signature to proceed.</div>
+  <div class="btn-row">
+    <button class="btn-next btn-green" id="btnStep2" onclick="goTo(3)" disabled>I Accept — Continue →</button>
+    <button class="btn-next btn-back" onclick="goTo(1)">← Back to Terms & Conditions</button>
+  </div>
+</div>
+
+
+
+<!-- STEP 3 — AVAILABILITY -->
+<div class="panel" id="step3">
+  <div class="panel-header">
+    <div class="panel-eyebrow">Step 3 of 5</div>
+    <div class="panel-title">Check Availability</div>
+    <p class="panel-sub">Browse Jack's available slots at both venues below. Note your preferred time — you'll confirm it after payment.</p>
+  </div>
+
+  <!-- Discovery call notice -->
+  <div style="background:var(--dark);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+    <div style="flex:1;">
+      <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.25rem;">⭐ 1-on-1 clients only</div>
+      <div style="font-size:0.85rem;font-weight:700;color:white;margin-bottom:0.2rem;">Free 15-min Discovery Call included</div>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);line-height:1.6;">The tan/beige slots on the calendar are discovery call times — <strong style="color:rgba(255,255,255,0.8);">1-on-1 bookings only.</strong> Group bookings (2–4 people) do not include a discovery call.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;flex-shrink:0;">
+      <div style="background:var(--green);border-radius:6px;padding:0.35rem 0.85rem;font-size:0.7rem;font-weight:700;color:white;text-align:center;">✓ 1-on-1 — included</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:6px;padding:0.35rem 0.85rem;font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.3);text-align:center;text-decoration:line-through;">2–4 people — not included</div>
+    </div>
+  </div>
+
+  <div class="cal-wrap">
+    <div class="cal-header">
+      <span>⭐ Waverley Park &amp; Northbridge Park — Live Availability</span>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><span class="cal-dot" style="background:#a79b8e;"></span>Discovery Call (1-on-1 only)</div>
+        <div class="cal-legend-item"><span class="cal-dot" style="background:#f09300;"></span>Waverley Park</div>
+        <div class="cal-legend-item"><span class="cal-dot" style="background:#8e24aa;"></span>Northbridge Park</div>
+      </div>
+    </div>
+    <iframe class="cal-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FSydney&showPrint=0&src=ODY3ODMwNzIzYjczZjY0NGE5YTBhNTNjNmNhMGY0YzU0NGU0MzczMDZiMDBjNTNkYTIyNWMyMzgwZWYxOWEwM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YzdjYzc2MTZkNzNhMmZjNTI3NzU5Nzg0YzI2YjRiMWEyYzRlYTMyOTdlZWE1N2FkYTE3OGUyNmU3Mjc2ZThmM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MTI4ODU0Y2RlMDJjNWU4YzkyNWQ2M2Q4ZjNiMmRmMjlkMzBlMDkyOThkNWUyMzZjZjMzZWY5MDZlZDM5ODE5YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23a79b8e&color=%238e24aa&color=%23f09300" height="500" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <div class="info-box"><strong>View only</strong> — you cannot book through this calendar. Note your preferred time slot and venue, then complete payment. Jack will send you the scheduling link after payment is confirmed.</div>
+  <div class="btn-row">
+    <button class="btn-next btn-green" onclick="goTo(4)">I've Checked Availability — Continue →</button>
+    <button class="btn-next btn-back" onclick="goTo(2)">← Back to Waiver</button>
+  </div>
+</div>
+
+<!-- STEP 4 — YOUR DETAILS -->
+<div class="panel" id="step4">
+  <div class="panel-header">
+    <div class="panel-eyebrow">Step 4 of 5</div>
+    <div class="panel-title">Your Details</div>
+    <p class="panel-sub">Fill in your details below. Jack uses this to personalise your first session. Your information is sent securely and kept private.</p>
+  </div>
+  <form id="detailsForm" action="https://formspree.io/f/mpqojgjo" method="POST" onsubmit="handleSubmit(event)">
+
+    <!-- Hidden fields -->
+    <input type="hidden" name="_subject" value="New Trial Booking — Start Tennis Sydney">
+    <input type="hidden" name="_next" value="">
+
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="field">
+          <label>First Name *</label>
+          <input type="text" name="First Name" id="fFirstName" placeholder="e.g. Sarah" oninput="checkDetails()" required>
+        </div>
+        <div class="field">
+          <label>Last Name *</label>
+          <input type="text" name="Last Name" id="fLastName" placeholder="e.g. Johnson" oninput="checkDetails()" required>
+        </div>
+        <div class="field">
+          <label>Email Address *</label>
+          <input type="email" name="Email" id="fEmail" placeholder="you@email.com" oninput="checkDetails()" required>
+        </div>
+        <div class="field">
+          <label>Phone Number *</label>
+          <input type="tel" name="Phone" id="fPhone" placeholder="04XX XXX XXX" oninput="checkDetails()" required>
+        </div>
+        <div class="field">
+          <label>Date of Birth *</label>
+          <input type="date" name="Date of Birth" id="fDob" oninput="checkDetails()" required>
+          <span id="dobError" style="font-size:0.72rem;color:#e24b4a;display:none;margin-top:0.2rem;">⚠ You must be 18 or older to book a session.</span>
+        </div>
+        <div class="field">
+          <label>Tennis Experience *</label>
+          <select name="Tennis Experience" id="fExp" onchange="checkDetails()" required>
+            <option value="">Select your level</option>
+            <option>Complete beginner — never played</option>
+            <option>Played a few times casually</option>
+            <option>Played regularly but no formal coaching</option>
+            <option>Had some coaching before</option>
+            <option>Returning after a long break</option>
+          </select>
+        </div>
+
+        <!-- Session type -->
+        <div class="field form-full">
+          <label>Session Type *</label>
+          <select name="Session Type" id="fSessionType" onchange="handleSessionType()" required>
+            <option value="">Are you booking alone or with others?</option>
+            <option value="solo">1-on-1 — just me</option>
+            <option value="group">Group — 2, 3 or 4 people</option>
+          </select>
+        </div>
+
+        <!-- Group members (shown only for group) -->
+        <div class="form-full" id="groupMembersSection" style="display:none;">
+          <div style="background:var(--green-pale);border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;">👥 Other People Attending</div>
+            <div id="groupMemberFields" style="display:flex;flex-direction:column;gap:0.5rem;"></div>
+            <button type="button" onclick="addMember()" id="addMemberBtn" style="margin-top:0.75rem;background:var(--green);color:white;border:none;padding:0.45rem 1rem;border-radius:5px;font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">+ Add Person</button>
+            <div style="font-size:0.68rem;color:var(--muted);margin-top:0.5rem;">Maximum 3 additional people (4 total including you).</div>
+          </div>
+        </div>
+
+        <div class="field form-full">
+          <label>Anything Jack should know before your session?</label>
+          <textarea name="Notes" id="fNotes" placeholder="e.g. injuries, goals, what you're hoping to improve..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box"><strong>Your details are kept private</strong> — sent securely to Jack only. Used to personalise your coaching experience and send your booking confirmation.</div>
+
+    <div id="submitMsg" style="display:none;background:var(--green-pale);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1rem;font-size:0.82rem;color:var(--mid);">
+      ✅ <strong>Details received!</strong> Continuing to payment...
+    </div>
+
+    <!-- Cloudflare Turnstile -->
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAACz6UFI5_NywfQ70" data-theme="light" data-callback="onTurnstileSuccess" style="margin-bottom:1rem;"></div>
+
+    <div class="btn-row">
+      <button type="submit" class="btn-next btn-green" id="btnStep4" onclick="if(!this.disabled)handleSubmit(event)" disabled>Save Details — Continue to Payment →</button>
+      <button type="button" class="btn-next btn-back" onclick="goTo(3)">← Back to Availability</button>
+    </div>
+  </form>
+</div>
+
+<!-- STEP 5 — PAYMENT -->
+<div class="panel" id="step5">
+  <div class="panel-header">
+    <div class="panel-eyebrow">Step 5 of 5</div>
+    <div class="panel-title">Choose Your Session &amp; Pay</div>
+    <p class="panel-sub">Select your session type and venue below. You'll be taken to a secure Stripe payment page.</p>
+  </div>
+
+  <!-- Session type toggle -->
+  <div style="display:flex;gap:0;background:var(--off-white);border-radius:8px;padding:4px;margin-bottom:1.5rem;width:fit-content;">
+    <button id="tab1on1" onclick="switchSession('solo')" style="padding:0.55rem 1.5rem;border-radius:6px;border:none;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;background:var(--dark);color:white;transition:all 0.2s;">1-on-1</button>
+    <button id="tab24" onclick="switchSession('group')" style="padding:0.55rem 1.5rem;border-radius:6px;border:none;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.2s;">2–4 People</button>
+  </div>
+
+  <!-- 1-ON-1 VENUES -->
+  <div id="venues-solo">
+    <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Select your venue</div>
+    <div class="venue-cards">
+      <a href="https://buy.stripe.com/9B6aEWfr4dFK2pk0a32Ji02" target="_blank" class="venue-pay-card">
+        <div>
+          <div class="venue-badge-wrap"><span class="venue-priority">⭐ Priority Venue</span></div>
+          <div class="venue-name-big">Waverley Park</div>
+          <div class="venue-addr-small">Cnr Goldie Avenue &amp; James Street, NSW 2022</div>
+        </div>
+        <div>
+          <div class="venue-price-big">$90</div>
+          <div class="venue-price-note">60 min · all-inclusive</div>
+        </div>
+      </a>
+      <a href="https://buy.stripe.com/8x2aEWdiWeJObZU6yr2Ji01" target="_blank" class="venue-pay-card">
+        <div>
+          <div class="venue-badge-wrap"><span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Alternative Venue</span></div>
+          <div class="venue-name-big">Northbridge Park</div>
+          <div class="venue-addr-small">Northbridge Park &amp; Memorial Reserve, Sailors Bay Rd, NSW 2063</div>
+        </div>
+        <div>
+          <div class="venue-price-big">$70</div>
+          <div class="venue-price-note">60 min · all-inclusive</div>
+        </div>
+      </a>
+      <div class="venue-pay-card unavailable">
+        <div>
+          <div class="venue-badge-wrap"><span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Currently Unavailable</span></div>
+          <div class="venue-name-big" style="color:var(--muted);">Glebe Tennis Court</div>
+          <div class="venue-addr-small">St James Park, Glebe NSW 2037 — In progress</div>
+        </div>
+        <div><div style="font-size:0.78rem;font-weight:700;color:var(--muted);font-style:italic;">Coming soon</div></div>
+      </div>
+    </div>
+    <div style="margin-top:0.75rem;font-size:0.78rem;color:var(--muted);">🎁 Includes a <strong>free 15-min discovery call</strong> with Jack before your session.</div>
+  </div>
+
+  <!-- 2-4 PEOPLE VENUES -->
+  <div id="venues-group" style="display:none;">
+    <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Select your venue — price depends on group size</div>
+    <div style="background:var(--green-pale);border-radius:8px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.8rem;color:var(--mid);line-height:1.7;">
+      <strong>Group size pricing:</strong><br>
+      2 people · 3 people · 4 people — price adjusts at payment. Select venue to proceed.
+    </div>
+    <div class="venue-cards">
+      <div class="venue-pay-card" style="cursor:pointer;" onclick="showGroupPricing('waverley')">
+        <div>
+          <div class="venue-badge-wrap"><span class="venue-priority">⭐ Priority Venue</span></div>
+          <div class="venue-name-big">Waverley Park</div>
+          <div class="venue-addr-small">Cnr Goldie Avenue &amp; James Street, NSW 2022</div>
+        </div>
+        <div>
+          <div class="venue-price-big" style="font-size:1.3rem;">$90–$120</div>
+          <div class="venue-price-note">per group · 60 min</div>
+        </div>
+      </div>
+      <div class="venue-pay-card" style="cursor:pointer;" onclick="showGroupPricing('northbridge')">
+        <div>
+          <div class="venue-badge-wrap"><span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Alternative Venue</span></div>
+          <div class="venue-name-big">Northbridge Park</div>
+          <div class="venue-addr-small">Northbridge Park &amp; Memorial Reserve, Sailors Bay Rd, NSW 2063</div>
+        </div>
+        <div>
+          <div class="venue-price-big" style="font-size:1.3rem;">$70–$100</div>
+          <div class="venue-price-note">per group · 60 min</div>
+        </div>
+      </div>
+      <div class="venue-pay-card unavailable">
+        <div>
+          <div class="venue-badge-wrap"><span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Currently Unavailable</span></div>
+          <div class="venue-name-big" style="color:var(--muted);">Glebe Tennis Court</div>
+          <div class="venue-addr-small">St James Park, Glebe NSW 2037 — In progress</div>
+        </div>
+        <div><div style="font-size:0.78rem;font-weight:700;color:var(--muted);font-style:italic;">Coming soon</div></div>
+      </div>
+    </div>
+
+    <!-- Group pricing breakdown -->
+    <div id="groupPricingBox" style="display:none;background:white;border-radius:12px;border:1.5px solid var(--green);padding:1.25rem;margin-top:1rem;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem;" id="groupVenueName"></div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="groupPriceRows"></div>
+
+      <!-- Declaration checkbox -->
+      <div style="background:rgba(200,84,26,0.06);border:1.5px solid rgba(200,84,26,0.2);border-radius:8px;padding:0.85rem 1rem;margin-top:1rem;">
+        <label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;">
+          <input type="checkbox" id="groupDeclaration" onchange="checkGroupDeclaration()" style="margin-top:3px;accent-color:var(--clay);width:16px;height:16px;flex-shrink:0;">
+          <span style="font-size:0.78rem;color:var(--mid);line-height:1.7;">I confirm the number of people selected is accurate. I understand that misrepresenting group size is a breach of the <strong>Terms & Conditions</strong> and the correct rate will be charged on the day.</span>
+        </label>
+      </div>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:0.75rem;">Tick the box above then select your group size to proceed to payment.</p>
+    </div>
+    <div style="margin-top:0.75rem;font-size:0.78rem;color:var(--muted);">ℹ️ Select your venue then choose your group size to pay via Stripe.</div>
+  </div>
+
+  <div class="info-box" id="paymentInfoBox">
+    <strong>🔒 Secure payment via Stripe.</strong> After payment Jack will send you a personalised SMS and email with your Cal.com scheduling links for the discovery call and on-court session. You don't need to do anything else — just wait for Jack's message.
+  </div>
+  <button class="btn-next btn-back" style="margin-top:0.5rem;" onclick="goTo(4)">← Back to Your Details</button>
+</div>
+
+<script>
+// ── SESSION TYPE IN STEP 4 ──
+let memberCount = 0;
+
+function handleSessionType() {
+  const type = document.getElementById('fSessionType').value;
+  const isGroup = type === 'group';
+  document.getElementById('groupMembersSection').style.display = isGroup ? 'block' : 'none';
+  // Clear group members if switching away from group
+  if (!isGroup) {
+    document.getElementById('groupMemberFields').innerHTML = '';
+    memberCount = 0;
+    document.getElementById('addMemberBtn').style.display = 'block';
+  }
+  // Auto-switch step 5 tab
+  if (type === 'solo') switchSession('solo');
+  if (type === 'group') switchSession('group');
+  checkDetails();
+}
+
+function addMember() {
+  const container = document.getElementById('groupMemberFields');
+  if (container.children.length >= 3) return;
+  memberCount++;
+  const id = memberCount;
+  const div = document.createElement('div');
+  div.id = 'member_' + id;
+  div.style.cssText = 'display:flex;gap:0.5rem;align-items:center;';
+  div.innerHTML = `
+    <input type="text" name="Person ${id+1} First Name" placeholder="First name" style="flex:1;padding:0.6rem 0.75rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:7px;font-family:'Lato',sans-serif;font-size:0.85rem;color:var(--dark);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'" oninput="checkDetails()">
+    <input type="text" name="Person ${id+1} Last Name" placeholder="Last name" style="flex:1;padding:0.6rem 0.75rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:7px;font-family:'Lato',sans-serif;font-size:0.85rem;color:var(--dark);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'" oninput="checkDetails()">
+    <button type="button" onclick="removeMember(${id})" style="background:rgba(200,84,26,0.1);border:none;color:var(--clay);width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;flex-shrink:0;line-height:1;">✕</button>`;
+  container.appendChild(div);
+  if (container.children.length >= 3) {
+    document.getElementById('addMemberBtn').style.display = 'none';
+  }
+  checkDetails();
+}
+
+function removeMember(id) {
+  const el = document.getElementById('member_' + id);
+  if (el) el.remove();
+  document.getElementById('addMemberBtn').style.display = 'block';
+  checkDetails();
+}
+
+// ── SESSION TYPE TOGGLE ──
+function switchSession(type) {
+  const soloEl = document.getElementById('venues-solo');
+  if (!soloEl) return; // step 5 not in view yet
+  const isSolo = type === 'solo';
+  soloEl.style.display = isSolo ? 'block' : 'none';
+  document.getElementById('venues-group').style.display = isSolo ? 'none' : 'block';
+  document.getElementById('tab1on1').style.background = isSolo ? 'var(--dark)' : 'transparent';
+  document.getElementById('tab1on1').style.color = isSolo ? 'white' : 'var(--muted)';
+  document.getElementById('tab24').style.background = isSolo ? 'transparent' : 'var(--dark)';
+  document.getElementById('tab24').style.color = isSolo ? 'var(--muted)' : 'white';
+  const infoBox = document.getElementById('paymentInfoBox');
+  if (infoBox) infoBox.innerHTML = isSolo
+    ? '<strong>🔒 Secure payment via Stripe.</strong> After payment Jack will send you a personalised SMS and email with your Cal.com scheduling links for the discovery call and on-court session.'
+    : '<strong>🔒 Secure payment via Stripe.</strong> Select your venue and group size above to go directly to the Stripe payment page.';
+  const pricingBox = document.getElementById('groupPricingBox');
+  if (pricingBox) pricingBox.style.display = 'none';
+}
+
+// ── GROUP PRICING ──
+const groupPrices = {
+  waverley: {
+    name: '⭐ Waverley Park — Select Group Size',
+    prices: [
+      { size: '👥 2 people', price: '$90', link: '#' },
+      { size: '👥 3 people', price: '$105', link: '#' },
+      { size: '👥 4 people', price: '$120', link: '#' },
+    ]
+  },
+  northbridge: {
+    name: 'Northbridge Park — Select Group Size',
+    prices: [
+      { size: '👥 2 people', price: '$70', link: '#' },
+      { size: '👥 3 people', price: '$85', link: '#' },
+      { size: '👥 4 people', price: '$100', link: '#' },
+    ]
+  }
+};
+
+function showGroupPricing(venue) {
+  const data = groupPrices[venue];
+  document.getElementById('groupVenueName').textContent = data.name;
+  // Reset checkbox
+  const cb = document.getElementById('groupDeclaration');
+  if (cb) cb.checked = false;
+  renderGroupButtons(data.prices, false);
+  document.getElementById('groupPricingBox').style.display = 'block';
+  document.getElementById('groupPricingBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // Store current venue
+  document.getElementById('groupPricingBox').dataset.venue = venue;
+}
+
+function renderGroupButtons(prices, enabled) {
+  document.getElementById('groupPriceRows').innerHTML = prices.map(({ size, price, link }) =>
+    enabled
+      ? `<a href="${link}" target="_blank" style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--green-pale);border-radius:8px;font-size:0.85rem;text-decoration:none;border:1.5px solid transparent;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='transparent'">
+          <span style="font-weight:700;color:var(--dark);">${size}</span>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <strong style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;color:var(--green);">${price}</strong>
+            <span style="background:var(--green);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:100px;">Pay →</span>
+          </div>
+        </a>`
+      : `<div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:rgba(0,0,0,0.04);border-radius:8px;font-size:0.85rem;opacity:0.5;cursor:not-allowed;">
+          <span style="font-weight:700;color:var(--dark);">${size}</span>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <strong style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;color:var(--muted);">${price}</strong>
+            <span style="background:var(--muted);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:100px;">🔒 Pay</span>
+          </div>
+        </div>`
+  ).join('');
+}
+
+function checkGroupDeclaration() {
+  const checked = document.getElementById('groupDeclaration').checked;
+  const venue = document.getElementById('groupPricingBox').dataset.venue;
+  if (venue && groupPrices[venue]) {
+    renderGroupButtons(groupPrices[venue].prices, checked);
+  }
+}
+
+// ── STEP NAVIGATION ──
+function goTo(step) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+  document.querySelectorAll('.progress-step').forEach((s, i) => {
+    s.classList.remove('active', 'done');
+    if (i + 1 < step) s.classList.add('done');
+    if (i + 1 === step) s.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (step === 2) setTimeout(() => { initCanvas(); setupCanvas(); }, 100);
+}
+
+// ── STEP 1: TC SCROLL ──
+const tcScroll = document.getElementById('tcScroll');
+const btnStep1 = document.getElementById('btnStep1');
+const scrollHint = document.getElementById('scrollHint');
+tcScroll.addEventListener('scroll', function() {
+  const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 20;
+  if (atBottom) {
+    btnStep1.disabled = false;
+    scrollHint.classList.add('hidden');
+  }
+});
+
+// ── STEP 2: WAIVER SCROLL ──
+const waiverScroll = document.getElementById('waiverScroll');
+const waiverHint = document.getElementById('waiverHint');
+if (waiverScroll) {
+  waiverScroll.addEventListener('scroll', function() {
+    const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 20;
+    if (atBottom) {
+      if (waiverHint) waiverHint.classList.add('hidden');
+      document.getElementById('sigArea').style.opacity = '1';
+      document.getElementById('sigArea').style.pointerEvents = 'auto';
+      checkWaiver();
+    }
+  });
+  // Initially hide sig area until scrolled
+  const sigAreaEl = document.getElementById('sigArea');
+  if (sigAreaEl) { sigAreaEl.style.opacity = '0.3'; sigAreaEl.style.pointerEvents = 'none'; }
+}
+
+// ── STEP 2: WAIVER SIGNATURE ──
+let drawing = false;
+let hasSig = false;
+let canvas, ctx;
+
+function initCanvas() {
+  canvas = document.getElementById('sigCanvas');
+  ctx = canvas.getContext('2d');
+  const w = canvas.parentElement.clientWidth - 32;
+  canvas.style.width = w + 'px';
+  canvas.style.height = '120px';
+  canvas.width = w * window.devicePixelRatio;
+  canvas.height = 120 * window.devicePixelRatio;
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  ctx.strokeStyle = '#0e1a14';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+}
+
+function getPos(e) {
+  const r = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x: clientX - r.left, y: clientY - r.top };
+}
+
+function setupCanvas() {
+  if (!canvas) initCanvas();
+  canvas.addEventListener('mousedown', e => { drawing = true; ctx.beginPath(); const p = getPos(e); ctx.moveTo(p.x, p.y); e.preventDefault(); });
+  canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; checkWaiver(); });
+  canvas.addEventListener('mouseup', () => { drawing = false; });
+  canvas.addEventListener('mouseleave', () => { drawing = false; });
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; ctx.beginPath(); const p = getPos(e); ctx.moveTo(p.x, p.y); }, { passive: false });
+  canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; checkWaiver(); }, { passive: false });
+  canvas.addEventListener('touchend', () => { drawing = false; });
+}
+
+function clearSig() {
+  if (!canvas) return;
+  ctx.clearRect(0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
+  hasSig = false;
+  checkWaiver();
+}
+
+function checkWaiver() {
+  const btn = document.getElementById('btnStep2');
+  const sigArea = document.getElementById('sigArea');
+  const sigRequired = document.getElementById('sigRequired');
+  const sigDone = document.getElementById('sigDone');
+  if (!btn) return;
+  btn.disabled = !hasSig;
+  if (hasSig) {
+    sigArea.style.borderColor = 'var(--green)';
+    sigArea.style.background = 'var(--green-pale)';
+    sigRequired.style.display = 'none';
+    sigDone.style.display = 'inline';
+  } else {
+    sigArea.style.borderColor = 'rgba(0,0,0,0.2)';
+    sigArea.style.background = 'var(--off-white)';
+    sigRequired.style.display = 'inline';
+    sigDone.style.display = 'none';
+  }
+}
+
+// Set max date for DOB (must be 18+)
+window.addEventListener('load', () => {
+  const dobInput = document.getElementById('fDob');
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 18);
+  dobInput.max = maxDate.toISOString().split('T')[0];
+});
+
+// ── FORMSPREE SUBMIT ──
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('btnStep4');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    const form = document.getElementById('detailsForm');
+    const data = new FormData(form);
+    // Attach signature as base64 image
+    const canvas = document.getElementById('sigCanvas');
+    if (canvas) {
+      const sigData = canvas.toDataURL('image/png');
+      data.append('signature_image', sigData);
+    }
+    const res = await fetch('https://formspree.io/f/mpqojgjo', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('submitMsg').style.display = 'block';
+      btn.textContent = '✓ Details Saved';
+      setTimeout(() => goTo(5), 1200);
+    } else {
+      document.getElementById('submitMsg').style.display = 'block';
+      btn.textContent = '✓ Continue';
+      setTimeout(() => goTo(5), 1200);
+    }
+  } catch {
+    document.getElementById('submitMsg').style.display = 'block';
+    btn.textContent = '✓ Continue';
+    setTimeout(() => goTo(5), 1200);
+  }
+}
+
+function checkDetails() {
+  const first = document.getElementById('fFirstName').value.trim();
+  const last = document.getElementById('fLastName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const dob = document.getElementById('fDob').value;
+  const exp = document.getElementById('fExp').value;
+  const sessionType = document.getElementById('fSessionType').value;
+  const dobError = document.getElementById('dobError');
+
+  // 18+ check
+  let isAdult = false;
+  if (dob) {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+    isAdult = age >= 18;
+    dobError.style.display = isAdult ? 'none' : 'block';
+  } else {
+    dobError.style.display = 'none';
+  }
+
+  // Session type must be selected
+  const hasSessionType = sessionType === 'solo' || sessionType === 'group';
+
+  // If group — must have at least 1 extra person with both names filled
+  let groupValid = true;
+  if (sessionType === 'group') {
+    const memberRows = document.getElementById('groupMemberFields').children;
+    if (memberRows.length === 0) {
+      groupValid = false;
+    } else {
+      for (const row of memberRows) {
+        const inputs = row.querySelectorAll('input');
+        for (const input of inputs) {
+          if (!input.value.trim()) { groupValid = false; break; }
+        }
+        if (!groupValid) break;
+      }
+    }
+  }
+
+  const turnstileEl = document.querySelector('.cf-turnstile iframe');
+  const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+  const turnstileReady = !turnstileEl || turnstileToken;
+
+  const valid = first && last && email.includes('@') && phone.length >= 8 && dob && isAdult && exp && hasSessionType && groupValid && turnstileReady;
+  document.getElementById('btnStep4').disabled = !valid;
+}
+
+// Re-check when Turnstile completes
+window.onTurnstileSuccess = function() { checkDetails(); };
+</script>
+
+</body>
+</html>
