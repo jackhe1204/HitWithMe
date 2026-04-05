@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Tennis Sydney — Beginner Tennis Coaching · Eastern Suburbs</title>
+<meta name="description" content="Private tennis coaching for beginners and casual players in Sydney's Eastern Suburbs. Sessions at Waverley Park, Northbridge Park and Glebe. Book your trial today.">
+<meta name="keywords" content="tennis coaching Sydney, beginner tennis Sydney, Eastern Suburbs tennis coach, tennis lessons Bondi Junction, learn tennis Sydney">
+<meta property="og:title" content="Start Tennis Sydney — Beginner Tennis Coaching">
+<meta property="og:description" content="Private tennis coaching for beginners and casual players in Sydney's Eastern Suburbs. Everything included — no hidden fees. Book your trial today.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.starttennissydney.com">
+<link rel="canonical" href="https://www.starttennissydney.com">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #1a7a54; --green-light: #24a870; --green-pale: #e6f7f0;
+    --clay: #c8541a; --clay-light: #f4784a;
+    --dark: #0e1a14; --mid: #2b3d33; --muted: #6b7f74;
+    --off-white: #f7f9f7; --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lato', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 2.5rem; background:rgba(14,26,20,0.95); backdrop-filter:blur(8px); }
+  .nav-logo { font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:800; color:var(--white); letter-spacing:0.04em; text-decoration:none; }
+  .nav-logo span { color:var(--clay-light); }
+  .nav-links { display:flex; gap:1.25rem; list-style:none; align-items:center; }
+  .nav-links a { font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover { color:var(--clay-light); }
+  .nav-cta { background:var(--clay); color:var(--white) !important; padding:0.5rem 1.2rem; border-radius:4px; }
+  .nav-cta:hover { background:var(--clay-light) !important; }
+
+  /* HERO */
+  .hero { min-height:100vh; background:var(--dark); display:flex; align-items:center; position:relative; overflow:hidden; padding:7rem 2.5rem 8rem; }
+  .hero-court { position:absolute; inset:0; opacity:0.07; background-image:linear-gradient(var(--green-light) 1px,transparent 1px),linear-gradient(90deg,var(--green-light) 1px,transparent 1px); background-size:60px 60px; }
+  .hero-accent { position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(200,84,26,0.15) 0%,transparent 70%); pointer-events:none; }
+  .hero-ball { position:absolute; right:12%; top:20%; width:120px; height:120px; border-radius:50%; background:var(--clay); opacity:0.12; animation:float 6s ease-in-out infinite; }
+  .hero-ball-sm { position:absolute; right:28%; bottom:25%; width:60px; height:60px; border-radius:50%; background:var(--green-light); opacity:0.1; animation:float 8s ease-in-out infinite reverse; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+  .hero-content { position:relative; max-width:700px; animation:fadeUp 0.9s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .hero-tag { display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--clay-light); margin-bottom:1.2rem; padding:0.35rem 0.9rem; border:1px solid rgba(244,120,74,0.4); border-radius:3px; }
+  .hero h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(3.5rem,8vw,6.5rem); font-weight:800; line-height:0.95; color:var(--white); text-transform:uppercase; margin-bottom:1.5rem; }
+  .hero h1 em { font-style:normal; color:var(--clay-light); display:block; }
+  .hero-sub { font-size:1.05rem; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.75; max-width:480px; margin-bottom:2.5rem; }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary { background:var(--clay); color:var(--white); padding:0.85rem 2rem; border-radius:4px; font-family:'Lato',sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; border:none; cursor:pointer; }
+  .btn-primary:hover { background:var(--clay-light); transform:translateY(-2px); }
+  .btn-ghost { color:rgba(255,255,255,0.8); padding:0.85rem 2rem; border-radius:4px; border:1px solid rgba(255,255,255,0.25); font-family:'Lato',sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
+  .btn-ghost:hover { border-color:rgba(255,255,255,0.6); color:var(--white); transform:translateY(-2px); }
+  .hero-stats { position:absolute; bottom:3rem; left:2.5rem; display:flex; gap:3rem; animation:fadeUp 1.1s ease 0.3s both; }
+  .stat-num { font-family:'Barlow Condensed',sans-serif; font-size:2.2rem; font-weight:800; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--clay-light); }
+  .stat-label { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:3px; }
+
+  /* PHOTOS */
+  .photos { display:grid; grid-template-columns:1.4fr 1fr 1fr; height:480px; overflow:hidden; }
+  .photo-item { position:relative; overflow:hidden; }
+  .photo-item img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform 0.5s ease; display:block; }
+  .photo-item:hover img { transform:scale(1.04); }
+  .photo-overlay { position:absolute; bottom:0; left:0; right:0; padding:1.2rem 1.4rem; background:linear-gradient(transparent,rgba(14,26,20,0.85)); }
+  .photo-overlay span { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.7); }
+
+  /* ABOUT */
+  .about { display:grid; grid-template-columns:1fr 1fr; min-height:80vh; }
+  .about-visual { background:var(--green); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:500px; }
+  .about-visual-lines { position:absolute; inset:0; opacity:0.12; }
+  .about-visual-lines::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:white; }
+  .about-visual-lines::after { content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:200px; height:200px; border-radius:50%; border:2px solid white; }
+  .about-avatar-wrap { position:relative; z-index:2; text-align:center; }
+  .about-avatar { width:100px; height:100px; border-radius:50%; background:rgba(255,255,255,0.15); border:3px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-size:2.8rem; font-weight:800; color:white; margin:0 auto 1rem; }
+  .about-name-badge { font-family:'Barlow Condensed',sans-serif; font-size:1.8rem; font-weight:800; color:white; text-transform:uppercase; letter-spacing:0.04em; }
+  .about-name-sub { font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:0.4rem; }
+  .about-content { padding:5rem 4rem; display:flex; flex-direction:column; justify-content:center; }
+  .section-tag { font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--clay); margin-bottom:0.75rem; }
+  .section-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; text-transform:uppercase; line-height:1.05; color:var(--dark); margin-bottom:1.5rem; }
+  .section-title span { color:var(--green); }
+  .about-text { font-size:0.95rem; color:var(--muted); line-height:1.8; margin-bottom:1rem; }
+  .about-quote { border-left:3px solid var(--clay-light); padding:0.75rem 1.25rem; margin:1.5rem 0; font-size:0.95rem; font-style:italic; color:var(--mid); line-height:1.75; background:var(--green-pale); border-radius:0 6px 6px 0; }
+  .creds { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
+  .cred { font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.35rem 0.85rem; border-radius:3px; background:var(--green-pale); color:var(--green); border:1px solid rgba(26,122,84,0.2); }
+
+  /* FOR YOU */
+  .for-you { padding:6rem 2.5rem; text-align:center; background:var(--off-white); }
+  .for-you-sub { font-size:1rem; color:var(--muted); max-width:480px; margin:0.75rem auto 3rem; line-height:1.7; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; max-width:1000px; margin:0 auto; }
+  .card { background:var(--white); border-radius:8px; padding:2.5rem 2rem; text-align:left; border:1px solid rgba(0,0,0,0.07); transition:transform 0.2s,box-shadow 0.2s; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.08); }
+  .card-icon { font-size:2rem; margin-bottom:1rem; }
+  .card h3 { font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:700; text-transform:uppercase; color:var(--dark); letter-spacing:0.03em; margin-bottom:0.6rem; }
+  .card p { font-size:0.88rem; color:var(--muted); line-height:1.7; }
+
+  /* APPROACH */
+  .approach { background:var(--dark); padding:6rem 2.5rem; }
+  .approach-inner { max-width:900px; margin:0 auto; }
+  .approach-header { text-align:center; margin-bottom:4rem; }
+  .approach .section-tag { color:rgba(255,255,255,0.5); }
+  .approach .section-title { color:var(--white); }
+  .approach .section-title span { color:var(--clay-light); }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); position:relative; }
+  .steps::before { content:''; position:absolute; top:28px; left:12.5%; right:12.5%; height:2px; background:var(--mid); z-index:0; }
+  .step { text-align:center; padding:0 1rem; position:relative; z-index:1; }
+  .step-num { width:56px; height:56px; border-radius:50%; background:var(--green); color:white; font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; border:3px solid var(--dark); }
+  .step h4 { font-family:'Barlow Condensed',sans-serif; font-size:1.1rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.04em; margin-bottom:0.5rem; }
+  .step p { font-size:0.83rem; color:rgba(255,255,255,0.45); line-height:1.65; }
+
+  /* BOOKING */
+  .booking { padding:6rem 2.5rem; background:var(--green-pale); }
+  .booking-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 1.6fr; gap:4rem; align-items:start; }
+  .booking-text p { font-size:0.95rem; color:var(--muted); line-height:1.8; margin-bottom:1rem; }
+  .booking-details { margin-top:1.5rem; display:flex; flex-direction:column; gap:0.75rem; }
+  .booking-detail { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.88rem; color:var(--mid); }
+  .booking-detail strong { color:var(--dark); font-weight:700; }
+  .booking-embed { background:var(--white); border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08); min-height:500px; display:flex; flex-direction:column; }
+  .calendly-placeholder { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:3rem 2rem; text-align:center; gap:1rem; }
+  .cal-icon { font-size:2.5rem; }
+  .calendly-placeholder h4 { font-family:'Barlow Condensed',sans-serif; font-size:1.6rem; font-weight:800; color:var(--dark); text-transform:uppercase; }
+  .calendly-placeholder p { font-size:0.88rem; color:var(--muted); line-height:1.6; max-width:260px; }
+  .cal-link { display:inline-block; margin-top:0.5rem; background:var(--green); color:white; padding:0.75rem 1.75rem; border-radius:4px; font-size:0.85rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
+  .cal-link:hover { background:var(--green-light); }
+  .cal-steps { text-align:left; width:100%; max-width:280px; margin-top:0.5rem; }
+  .cal-step { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.82rem; color:var(--muted); margin-bottom:0.6rem; }
+  .cal-step-num { width:20px; height:20px; border-radius:50%; background:var(--green-pale); color:var(--green); font-size:0.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+
+  /* CTA */
+  .cta-section { background:var(--green); padding:5rem 2.5rem; text-align:center; position:relative; overflow:hidden; }
+  .cta-bg { position:absolute; inset:0; opacity:0.06; background-image:linear-gradient(white 1px,transparent 1px),linear-gradient(90deg,white 1px,transparent 1px); background-size:40px 40px; }
+  .cta-section .section-title { color:white; position:relative; }
+  .cta-section .section-title span { color:var(--clay-light); }
+  .cta-sub { font-size:1rem; color:rgba(255,255,255,0.7); max-width:420px; margin:0.75rem auto 2.5rem; line-height:1.7; position:relative; }
+  .btn-white { background:white; color:var(--green); padding:0.9rem 2.5rem; border-radius:4px; font-family:'Lato',sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:transform 0.15s,box-shadow 0.15s; display:inline-block; position:relative; }
+  .btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+
+  /* FOOTER */
+  footer { background:var(--dark); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+  .footer-logo { font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:800; color:var(--white); text-decoration:none; }
+  .footer-logo span { color:var(--clay-light); }
+  .footer-text { font-size:0.8rem; color:rgba(255,255,255,0.3); letter-spacing:0.05em; }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width:768px) {
+    /* Nav */
+    nav { padding:0.85rem 1.25rem; }
+    .nav-links { display:none; }
+
+    /* Hero */
+    .hero { padding:5rem 1.25rem 3rem; min-height:auto; }
+    .hero-stats { display:none; }
+    .hero-btns { flex-direction:column; align-items:flex-start; gap:0.75rem; }
+    .hero-btns::after { content:''; display:block; margin-top:1.5rem; }
+    .hero-stats-mobile { display:flex !important; }
+    .hero h1 { font-size:clamp(2.2rem,10vw,3.5rem); }
+    .hero-btns { flex-direction:column; align-items:flex-start; gap:0.75rem; }
+    .btn-ghost { width:auto; }
+    .hero h1 { font-size:clamp(2.2rem,10vw,3.5rem); }
+
+    /* Photos */
+    .photos { grid-template-columns:1fr; height:auto; }
+    .photo-item { height:240px; }
+
+    /* About */
+    .about { grid-template-columns:1fr; }
+    .about-visual { min-height:240px; }
+    .about-content { padding:2rem 1.25rem; }
+    .cards { grid-template-columns:1fr; }
+
+    /* About section 3-grid → 1 col */
+    #about > div > div[style*="grid-template-columns:repeat(3"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* For You section */
+    .for-you { padding:4rem 1.25rem; }
+
+    /* Steps */
+    .steps { grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .steps::before { display:none; }
+
+    /* Availability */
+    #availability { padding:3rem 1.25rem; }
+    #availability .cal-wrap iframe { height:400px; }
+
+    /* Booking section */
+    .booking { padding:3rem 1.25rem; }
+    .booking-inner { grid-template-columns:1fr; gap:1.5rem; }
+
+    /* Pricing cards — force single column */
+    #prices-solo, #prices-group { grid-template-columns:1fr !important; }
+
+    /* Cancellation policy 3-grid → 1 col */
+    div[style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* TC/Legal 2-grid */
+    div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Returning section */
+    #returning { padding:3rem 1.25rem; }
+    #returning > div > div { flex-direction:column; align-items:flex-start; }
+
+    /* Meet Jack modal */
+    #photoModal { padding:1rem 0.75rem; }
+    #photoModal > div { border-radius:8px; }
+    #photoModal .photos-grid { grid-template-columns:1fr !important; height:auto !important; }
+    #photoModal > div > div[style*="grid-template-columns:1.3fr"] {
+      grid-template-columns: 1fr !important;
+      height: auto !important;
+    }
+    #photoModal > div > div[style*="grid-template-columns:1.3fr"] > div {
+      height: 200px !important;
+      border-left: none !important;
+      border-top: 2px solid rgba(255,255,255,0.06);
+    }
+    #photoModal > div > div[style*="padding:2rem"] {
+      padding: 1.25rem !important;
+    }
+    #photoModal > div > div[style*="padding:2rem"] > div[style*="display:flex;gap:2rem"] {
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+
+    /* Venue picker modal */
+    #venueModal { padding:1rem; }
+
+    /* TC modal */
+    #tcModal { padding:1rem 0.5rem; }
+    .tc-inner { padding:1rem; }
+    .tc-inner table { font-size:0.72rem; }
+
+    /* Footer */
+    footer { padding:2rem 1.25rem; justify-content:center; text-align:center; }
+    footer > div { justify-content:center; }
+
+    /* General padding fix */
+    section { padding-left:1.25rem !important; padding-right:1.25rem !important; }
+
+    /* Availability dark banner */
+    #availability div[style*="display:flex;align-items:center;justify-content:space-between"] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+
+    /* Booking CTA box 2-grid → 1 col */
+    div[style*="grid-template-columns:1fr 1fr;border-top"] {
+      grid-template-columns: 1fr !important;
+    }
+    div[style*="grid-template-columns:1fr 1fr;border-top"] > div {
+      border-right: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+  }
+
+  @media (max-width:480px) {
+    .steps { grid-template-columns:1fr; }
+    .hero h1 { font-size:2rem; }
+    nav { padding:0.75rem 1rem; }
+    .hero { padding:4.5rem 1rem 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="210" height="44" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="20" fill="#c8541a"/>
+      <path d="M3 22 Q22 10 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <path d="M3 22 Q22 34 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <text x="52" y="17" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="white">START</text>
+      <line x1="52" y1="20" x2="208" y2="20" stroke="rgba(255,255,255,0.15)" stroke-width="0.75"/>
+      <text x="52" y="34" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#f4784a">TENNIS SYDNEY</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#for-you">For You</a></li>
+    <li><a href="#approach">My Approach</a></li>
+    <li><a href="#availability">Availability</a></li>
+    <li style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden;">
+      <a href="onboard.html" style="background:var(--clay);color:white !important;padding:0.5rem 1.1rem;font-size:0.75rem;border-radius:0;white-space:nowrap;" onmouseover="this.style.background='var(--clay-light)'" onmouseout="this.style.background='var(--clay)'">Book a Trial</a>
+      <span style="width:1px;height:100%;background:rgba(255,255,255,0.15);display:inline-block;"></span>
+      <a href="book.html" style="color:var(--clay-light) !important;padding:0.5rem 1.1rem;font-size:0.75rem;white-space:nowrap;" onmouseover="this.style.color='white !important'" onmouseout="this.style.color='var(--clay-light) !important'">Returning →</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-court"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-ball"></div>
+  <div class="hero-ball-sm"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Tennis Coach · Eastern Suburbs, Sydney NSW</div>
+    <h1>Learn Tennis<em>The Right Way.</em></h1>
+    <p class="hero-sub">Beginner-focused coaching in Sydney's Eastern Suburbs — built to get you to the fun part of the game fast, and into real moments on court with your friends.</p>
+    <div class="hero-btns">
+      <a href="onboard.html" class="btn-primary">Book a Trial Session</a>
+      <button onclick="openPhotos()" class="btn-ghost" style="border:1px solid rgba(255,255,255,0.25);background:transparent;cursor:pointer;font-family:'Lato',sans-serif;">Meet Jack</button>
+    </div>
+    <!-- Mobile stats only -->
+    <div class="hero-stats-mobile" style="display:none;gap:2rem;flex-wrap:wrap;margin-top:2rem;">
+      <div class="stat-item"><div class="stat-num">8<span>yrs</span></div><div class="stat-label">Playing Tennis</div></div>
+      <div class="stat-item"><div class="stat-num">3<span>+</span></div><div class="stat-label">Yrs Coaching</div></div>
+      <div class="stat-item"><div class="stat-num">UTS</div><div class="stat-label">Sport Science</div></div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">8<span>yrs</span></div>
+      <div class="stat-label">Playing Tennis</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Yrs Coaching</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">UTS</div>
+      <div class="stat-label">Sport Science</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEGINNER BOOST SECTION -->
+<section id="about" style="background:var(--off-white);padding:6rem 2.5rem;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay);margin-bottom:0.75rem;">What We're About</div>
+    <h2 class="section-title" style="max-width:680px;margin-bottom:1.5rem;">Tennis Is More Fun <span>When You Do It Together.</span></h2>
+    <p style="font-size:1.05rem;color:var(--muted);line-height:1.85;max-width:660px;margin-bottom:3rem;font-weight:300;">Jack started Start Tennis Sydney because tennis shouldn't feel like homework. It should feel like the best hour of your week. He's building something beyond just lessons — a culture where beginners feel welcome, matches feel exciting, and the love of the game grows naturally through real people, real courts, and real fun.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;">
+      <div style="background:var(--white);border-radius:10px;padding:2rem;border:1px solid rgba(0,0,0,0.07);">
+        <div style="font-size:2rem;margin-bottom:1rem;">🎾</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--dark);margin-bottom:0.6rem;">Fun First, Always</div>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Jack coaches with energy and warmth. No stiff drills, no boring repetition. Every session is designed to leave you smiling, hooked, and already thinking about the next one.</p>
+      </div>
+      <div style="background:var(--green);border-radius:10px;padding:2rem;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🔥</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:white;margin-bottom:0.6rem;">A Culture of Engagement</div>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.75);line-height:1.7;">Jack is building a community where players encourage each other, friendships form on court, and tennis becomes a lifestyle — not just an activity you tried once.</p>
+      </div>
+      <div style="background:var(--white);border-radius:10px;padding:2rem;border:1px solid rgba(0,0,0,0.07);">
+        <div style="font-size:2rem;margin-bottom:1rem;">🤝</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--dark);margin-bottom:0.6rem;">Real People. Real Courts.</div>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">This isn't a faceless academy. Jack knows every client by name, remembers your goals, and celebrates your progress. You're not a booking — you're part of something growing.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--dark);border-radius:10px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:white;text-transform:uppercase;letter-spacing:0.03em;">Your first session — <span style="color:var(--clay-light);">minimum $70.</span></div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-top:0.4rem;">One session is all it takes to feel the difference. No lock-in, no pressure.</div>
+      </div>
+      <a href="onboard.html" style="display:inline-block;background:var(--clay);color:white;padding:0.85rem 2rem;border-radius:4px;font-family:'Lato',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='var(--clay-light)'" onmouseout="this.style.background='var(--clay)'">Book Your Trial →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOR YOU -->
+<section class="for-you" id="for-you">
+  <div class="section-tag">Who This Is For</div>
+  <h2 class="section-title">Built For <span>You</span></h2>
+  <p class="for-you-sub">Whether you've never picked up a racket or you've been playing for years without ever really improving — this is the right place to start.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🎾</div>
+      <h3>Complete Beginners</h3>
+      <p>Never held a racket before? Perfect. We start from zero with no assumptions and no pressure — just good fundamentals from day one.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Amateurs & Casual Players</h3>
+      <p>Played for a while but feel stuck? You're hitting the ball but nothing's really clicking. We break down the habits holding you back and get you actually improving — not just rallying.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="approach-header">
+      <div class="section-tag">My Approach</div>
+      <h2 class="section-title">How We <span>Get You There</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Assess</h4>
+        <p>We figure out exactly where you are so nothing is assumed and nothing is skipped.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Simplify</h4>
+        <p>Complex technique broken into clear, digestible steps that actually make sense.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Build</h4>
+        <p>Consistent reps, honest feedback, and real progress you can feel every session.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Enjoy It</h4>
+        <p>Tennis should be fun. You'll leave every session feeling better than when you arrived.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABILITY SECTION -->
+<section style="background:var(--off-white);padding:4rem 2rem;" id="availability">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:0.6rem;">Live Schedule</div>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-transform:uppercase;color:var(--dark);line-height:1.05;margin-bottom:0.75rem;">Check Availability</h2>
+      <p style="font-size:0.9rem;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.8;">Browse Jack's available time slots below. To book, pay first via the button above — Jack will send your scheduling link after payment.</p>
+    </div>
+
+    <!-- Discovery call notice -->
+    <div style="background:var(--dark);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:flex-start;gap:1.25rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.4rem;">⭐ 1-on-1 Clients Only</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;color:white;margin-bottom:0.3rem;">Free 15-min Discovery Call</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.7;">Every 1-on-1 trial includes a private call with Jack <em>before</em> the on-court session. Jack uses this to plan your session around you personally.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;flex-shrink:0;">
+          <div style="background:var(--green);border-radius:7px;padding:0.5rem 1rem;text-align:center;">
+            <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);">1-on-1 booking</div>
+            <div style="font-size:0.85rem;font-weight:700;color:white;">✓ Discovery call included</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:7px;padding:0.5rem 1rem;text-align:center;border:1px solid rgba(255,255,255,0.08);">
+            <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);">2–4 people booking</div>
+            <div style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.3);text-decoration:line-through;">Discovery call</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar embed -->
+    <div style="background:white;border-radius:14px;border:1px solid rgba(0,0,0,0.08);overflow:hidden;">
+      <div style="background:var(--dark);padding:0.7rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
+        <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:white;">Live Availability — All Venues</span>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <span style="font-size:0.62rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.35rem;"><span style="width:10px;height:10px;border-radius:50%;background:#a79b8e;display:inline-block;"></span>Discovery Call</span>
+          <span style="font-size:0.62rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.35rem;"><span style="width:10px;height:10px;border-radius:50%;background:#8e24aa;display:inline-block;"></span>Northbridge Park</span>
+          <span style="font-size:0.62rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.35rem;"><span style="width:10px;height:10px;border-radius:50%;background:#f09300;display:inline-block;"></span>Waverley Park</span>
+        </div>
+      </div>
+      <div style="width:100%;overflow:hidden;">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FSydney&showPrint=0&src=ODY3ODMwNzIzYjczZjY0NGE5YTBhNTNjNmNhMGY0YzU0NGU0MzczMDZiMDBjNTNkYTIyNWMyMzgwZWYxOWEwM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YzdjYzc2MTZkNzNhMmZjNTI3NzU5Nzg0YzI2YjRiMWEyYzRlYTMyOTdlZWE1N2FkYTE3OGUyNmU3Mjc2ZThmM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MTI4ODU0Y2RlMDJjNWU4YzkyNWQ2M2Q4ZjNiMmRmMjlkMzBlMDkyOThkNWUyMzZjZjMzZWY5MDZlZDM5ODE5YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23a79b8e&color=%238e24aa&color=%23f09300" style="border:0;display:block;width:100%;" width="800" height="580" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:1rem;">This calendar is <strong>view only</strong> — to book, pay first via "Book a Trial Session" above. Jack will send your scheduling link after payment.</p>
+  </div>
+</section>
+
+<!-- BOOKING + CTA COMBINED -->
+<section class="booking" id="booking">
+  <div style="max-width:1000px;margin:0 auto;">
+
+    <!-- Pricing banner — tabbed by group size -->
+    <div style="margin-bottom:3rem;">
+
+      <!-- Tab switcher -->
+      <div style="display:flex;gap:0;background:var(--off-white);border-radius:8px;padding:4px;margin-bottom:1.5rem;width:fit-content;">
+        <button id="tab-solo" onclick="switchGroup('solo')" style="padding:0.5rem 1.5rem;border-radius:6px;border:none;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;background:var(--dark);color:white;transition:all 0.2s;">1-on-1</button>
+        <button id="tab-group" onclick="switchGroup('group')" style="padding:0.5rem 1.5rem;border-radius:6px;border:none;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.2s;">2–4 People</button>
+      </div>
+
+      <!-- 1-on-1 pricing -->
+      <div id="prices-solo" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+
+        <!-- Trial 1-on-1 -->
+        <div style="background:var(--white);border-radius:12px;padding:1.75rem;border:2px solid var(--green-pale);position:relative;">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--clay);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Trial — First Session</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0.75rem 0 0.75rem;">60 min court time · all-inclusive · once per new client</div>
+          <!-- Exclusive discovery call callout -->
+          <div style="background:var(--green);border-radius:7px;padding:0.65rem 0.85rem;margin-bottom:0.85rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.25rem;">⭐ Exclusive to 1-on-1 Clients</div>
+            <div style="font-size:0.8rem;font-weight:700;color:white;margin-bottom:0.2rem;">Free 15-min Private Discovery Call</div>
+            <div style="font-size:0.73rem;color:rgba(255,255,255,0.82);line-height:1.55;">Before your trial, Jack gets on a private call with you to understand your background, what hasn't clicked before, and how to plan your session around you personally. Not offered to group bookings.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:var(--green);border-radius:6px;padding:0.55rem 0.75rem;"><span style="font-size:0.8rem;font-weight:700;color:white;">⭐ Waverley Park</span><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:white;">$90</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:var(--green-pale);border-radius:6px;padding:0.55rem 0.75rem;"><span style="font-size:0.8rem;font-weight:700;color:var(--mid);">Northbridge Park</span><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--green);">$70</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.04);border-radius:6px;padding:0.55rem 0.75rem;opacity:0.6;"><span style="font-size:0.8rem;font-weight:700;color:var(--muted);">Glebe Tennis Court</span><span style="font-size:0.65rem;font-weight:700;color:var(--muted);font-style:italic;">Currently unavailable</span></div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> Private 15-min call — 1-on-1 clients only</li>
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> Session planned around you personally</li>
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> 60 minutes of court time included</li>
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> Once per new client only</li>
+          </ul>
+        </div>
+
+        <!-- Standard 1-on-1 -->
+        <div style="background:var(--dark);border-radius:12px;padding:1.75rem;position:relative;">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--mid);color:rgba(255,255,255,0.7);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Standard — Session 2+</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:0.75rem 0 0.75rem;">60 min court time · all-inclusive · per session</div>
+          <!-- PDF feedback callout -->
+          <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:7px;padding:0.65rem 0.85rem;margin-bottom:0.85rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.2rem;">📄 PDF Session Feedback</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.5;">After every session you receive a personalised PDF — drills to practise, what to look out for, and exactly what to expect next lesson.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.12);border-radius:6px;padding:0.55rem 0.75rem;border:1px solid rgba(255,255,255,0.15);"><span style="font-size:0.8rem;font-weight:700;color:white;">⭐ Waverley Park</span><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--clay-light);">$130</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-radius:6px;padding:0.55rem 0.75rem;"><span style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.65);">Northbridge Park</span><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--clay-light);">$110</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:6px;padding:0.55rem 0.75rem;opacity:0.5;"><span style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);">Glebe Tennis Court</span><span style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.4);font-style:italic;">Currently unavailable</span></div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> PDF feedback after every session</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> 60 minutes of court time included</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Pay per session — no lock-in</li>
+          </ul>
+        </div>
+
+        <!-- 4-pack 1-on-1 -->
+        <div style="background:var(--dark);border-radius:12px;padding:1.75rem;position:relative;border:2px solid var(--clay);">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--clay);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Best Value · 4-Session Pack</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:0.75rem 0 0.75rem;">4 credits · 60 min court time each · 240 min total · once per new client</div>
+          <!-- PDF feedback callout -->
+          <div style="background:rgba(200,84,26,0.2);border:1px solid rgba(200,84,26,0.35);border-radius:7px;padding:0.65rem 0.85rem;margin-bottom:0.85rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.2rem;">📄 PDF Session Feedback</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.5;">Every credit includes a personalised PDF after the session — drills to practise, what to look out for, and your next session focus.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(200,84,26,0.25);border:1px solid rgba(200,84,26,0.4);border-radius:6px;padding:0.55rem 0.75rem;"><span style="font-size:0.8rem;font-weight:700;color:white;">⭐ Waverley Park</span><div style="text-align:right;"><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--clay-light);">$440</span><span style="font-size:0.65rem;color:rgba(255,255,255,0.5);margin-left:4px;">total · $110/session</span></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-radius:6px;padding:0.55rem 0.75rem;"><span style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.65);">Northbridge Park</span><div style="text-align:right;"><span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--clay-light);">$360</span><span style="font-size:0.65rem;color:rgba(255,255,255,0.35);margin-left:4px;">total · $90/session</span></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:6px;padding:0.55rem 0.75rem;opacity:0.5;"><span style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);">Glebe Tennis Court</span><span style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.4);font-style:italic;">Currently unavailable</span></div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> 60 min court time per credit · 240 min total</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> PDF feedback after every session</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Paid upfront — one Stripe payment</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Use each credit at your own flexibility</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Credits valid 6 months · once per new client</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2-4 people pricing -->
+      <div id="prices-group" style="display:none;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+
+        <!-- Trial 2-4 -->
+        <div style="background:var(--white);border-radius:12px;padding:1.75rem;border:2px solid var(--green-pale);position:relative;">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--clay);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Trial — First Session</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0.75rem 0 0.75rem;">60 min court time · all-inclusive · once per group</div>
+
+          <!-- Waverley -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:white;background:var(--green);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">⭐ Waverley Park</div>
+            <div style="background:var(--green-pale);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 2 people</span><strong style="color:var(--green);">$90</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 3 people</span><strong style="color:var(--green);">$105</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 4 people</span><strong style="color:var(--green);">$120</strong></div>
+            </div>
+          </div>
+          <!-- Northbridge -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:rgba(26,122,84,0.1);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Northbridge Park</div>
+            <div style="background:var(--green-pale);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 2 people</span><strong style="color:var(--green);">$70</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 3 people</span><strong style="color:var(--green);">$85</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 4 people</span><strong style="color:var(--green);">$100</strong></div>
+            </div>
+          </div>
+          <!-- Glebe -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:rgba(0,0,0,0.04);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Glebe Tennis Court — Currently Unavailable</div>
+            <div style="background:var(--green-pale);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 2 people</span><strong style="color:var(--green);">$90</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 3 people</span><strong style="color:var(--green);">$105</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--mid);"><span>👥 4 people</span><strong style="color:var(--green);">$120</strong></div>
+            </div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> 60 minutes of court time included</li>
+            <li style="font-size:0.78rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--green);font-weight:700;">✓</span> Once per new group only</li>
+          </ul>
+        </div>
+
+        <!-- Standard 2-4 -->
+        <div style="background:var(--dark);border-radius:12px;padding:1.75rem;position:relative;">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--mid);color:rgba(255,255,255,0.7);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Standard — Session 2+</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:0.75rem 0 0.75rem;">60 min court time · all-inclusive · per session</div>
+
+          <!-- Waverley -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:white;background:rgba(255,255,255,0.12);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">⭐ Waverley Park</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$60 each · $120</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$50 each · $150</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$45 each · $180</strong></div>
+            </div>
+          </div>
+          <!-- Northbridge -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Northbridge Park</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$50 each · $100</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$40 each · $120</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$35 each · $140</strong></div>
+            </div>
+          </div>
+          <!-- Glebe -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.03);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Glebe Tennis Court — Currently Unavailable</div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;opacity:0.4;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$55 each · $110</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$45 each · $135</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$40 each · $160</strong></div>
+            </div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> 60 minutes of court time included</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Pay per session — no lock-in</li>
+          </ul>
+        </div>
+
+        <!-- 4-pack 2-4 -->
+        <div style="background:var(--dark);border-radius:12px;padding:1.75rem;position:relative;border:2px solid var(--clay);">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--clay);color:white;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Best Value · 4-Session Pack</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:0.75rem 0 0.75rem;">4 credits · 60 min court time each · 240 min total · once per new group</div>
+
+          <!-- Waverley -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:white;background:rgba(200,84,26,0.35);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">⭐ Waverley Park</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$55 each · $440</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$45 each · $540</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$40 each · $640</strong></div>
+            </div>
+          </div>
+          <!-- Northbridge -->
+          <div style="margin-bottom:0.75rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Northbridge Park</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$45 each · $360</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$35 each · $420</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$30 each · $480</strong></div>
+            </div>
+          </div>
+          <!-- Glebe -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.03);border-radius:5px 5px 0 0;padding:0.3rem 0.65rem;">Glebe Tennis Court — Currently Unavailable</div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:0 0 5px 5px;padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.3rem;opacity:0.4;">
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 2 people</span><strong style="color:var(--clay-light);">$50 each · $400</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 3 people</span><strong style="color:var(--clay-light);">$40 each · $480</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(255,255,255,0.65);"><span>👥 4 people</span><strong style="color:var(--clay-light);">$35 each · $560</strong></div>
+            </div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> 60 min court time per credit · 240 min total</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Paid upfront — one Stripe payment</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Use each credit at your own flexibility</li>
+            <li style="font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--clay-light);font-weight:700;">✓</span> Credits valid 6 months · once per new group</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <div style="background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:1.75rem 2rem;margin-bottom:3rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem;">Cancellation Policy — Know Before You Book</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem;">
+
+        <div style="background:var(--green-pale);border-radius:8px;padding:1rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;">48+ hours notice</div>
+          <div style="font-size:0.82rem;font-weight:700;color:var(--green);margin-bottom:0.35rem;">Full refund via Stripe</div>
+          <div style="font-size:0.75rem;color:var(--muted);line-height:1.55;">Cancel more than 48 hours before your session and you'll receive a full cash refund to your card.</div>
+        </div>
+
+        <div style="background:#fdf0e8;border-radius:8px;padding:1rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:var(--clay);margin-bottom:0.3rem;">Under 48 hours</div>
+          <div style="font-size:0.82rem;font-weight:700;color:var(--clay);margin-bottom:0.35rem;">No refund</div>
+          <div style="font-size:0.75rem;color:var(--muted);line-height:1.55;">Cancellations inside 48 hours are non-refundable. Rescheduling may be offered at Jack's discretion.</div>
+        </div>
+
+        <div style="background:#f7f0fb;border-radius:8px;padding:1rem;border:1px solid rgba(0,0,0,0.05);">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:#534AB7;margin-bottom:0.3rem;">Sick with proof</div>
+          <div style="font-size:0.82rem;font-weight:700;color:#534AB7;margin-bottom:0.35rem;">Session credit issued</div>
+          <div style="font-size:0.75rem;color:var(--muted);line-height:1.55;">Send a GP medical certificate within 24 hours of the missed session → full session credit valid 3 months. Once per 6-month period.</div>
+        </div>
+
+      </div>
+      <div style="background:var(--off-white);border-radius:8px;padding:0.85rem 1rem;display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;">
+        <div style="font-size:0.75rem;color:var(--muted);"><strong style="color:var(--dark);">Payment:</strong> Authorised 1 week in advance — card held, not charged until Jack confirms.</div>
+        <div style="font-size:0.75rem;color:var(--muted);"><strong style="color:var(--dark);">No-show:</strong> Full fee forfeited, no refund.</div>
+        <div style="font-size:0.75rem;color:var(--muted);"><strong style="color:var(--dark);">Weather:</strong> Session credit issued if Jack deems conditions unplayable.</div>
+        <button onclick="openTC()" style="margin-left:auto;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:transparent;border:1px solid rgba(0,0,0,0.15);border-radius:4px;padding:0.4rem 0.85rem;cursor:pointer;color:var(--muted);transition:all 0.2s;" onmouseover="this.style.background='var(--green-pale)';this.style.color='var(--green)'" onmouseout="this.style.background='transparent';this.style.color='var(--muted)'">Full T&C →</button>
+      </div>
+    </div>
+
+    <!-- Before you book CTA box -->
+    <div style="background:var(--green);border-radius:12px;overflow:hidden;">
+      <div style="padding:2.5rem 2.5rem 0;">
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem;">Required Before Booking</div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-transform:uppercase;color:white;line-height:1.05;margin-bottom:0.75rem;">Complete These First<span style="color:var(--clay-light);">.</span></h2>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.8;max-width:560px;margin-bottom:2rem;">All new clients must read the Terms & Conditions and sign the Liability Waiver before their first session. Both are compulsory — no exceptions. It takes under 3 minutes and means we're both covered from the first ball.</p>
+      </div>
+
+      <!-- 2-step flow -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.12);">
+        <div style="padding:1.75rem 2rem;border-right:1px solid rgba(255,255,255,0.12);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.1)'" onmouseout="this.style.background=''" onclick="openTC()">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:white;margin-bottom:1rem;">1</div>
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.3rem;">Compulsory</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:white;letter-spacing:0.04em;margin-bottom:0.4rem;">Read Terms & Conditions</div>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:1rem;">Covers booking policy, cancellations, pricing, venue rules and everything in between. Must be read before your first session.</p>
+          <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;padding:0.5rem 1rem;border-radius:4px;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">📋 Read T&C →</div>
+        </div>
+        <div style="padding:1.75rem 2rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.1)'" onmouseout="this.style.background=''">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:white;margin-bottom:1rem;">2</div>
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.3rem;">Compulsory</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:white;letter-spacing:0.04em;margin-bottom:0.4rem;">Sign Liability Waiver</div>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:1rem;">A digital signature is required before your first session can be confirmed. Takes under 2 minutes — drawn signature only.</p>
+        </div>
+      </div>
+
+      <!-- Bottom note -->
+      <div style="padding:1rem 2.5rem;background:rgba(0,0,0,0.15);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.45);">⚠️ Both steps are required before your first session</span>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.45);">📍 Waverley Park · Northbridge Park · Glebe</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RETURNING CLIENT SECTION -->
+<section id="returning" style="background:var(--dark);padding:4rem 2.5rem;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
+      <div style="flex:1;min-width:260px;">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.5rem;">Already done your trial?</div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;text-transform:uppercase;color:white;line-height:1.05;margin-bottom:0.75rem;">Book Your Next<br><span style="color:var(--clay-light);">Session</span></h2>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;max-width:420px;">Welcome back. Your trial is done — now choose a standard session or lock in a 4-session pack at the discounted rate. Jack will confirm your court and send the scheduling link.</p>
+      </div>
+      <a href="book.html" style="display:inline-flex;align-items:center;gap:0.75rem;background:var(--clay);color:white;padding:1.1rem 2rem;border-radius:8px;text-decoration:none;transition:background 0.2s;flex-shrink:0;" onmouseover="this.style.background='var(--clay-light)'" onmouseout="this.style.background='var(--clay)'">
+        <div>
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.2rem;">Returning clients</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;">Book →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS & CONDITIONS MODAL -->
+<div id="tcModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(14,26,20,0.7);backdrop-filter:blur(4px);overflow-y:auto;padding:2rem 1rem;">
+  <div style="max-width:860px;margin:0 auto;background:var(--bg, #f4f7f5);border-radius:12px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+
+    <!-- Modal header -->
+    <div style="background:var(--dark);padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:white;letter-spacing:0.04em;">Terms & Conditions <span style="color:var(--clay-light);">— Start Tennis Sydney</span></div>
+      <button onclick="closeTC()" style="background:rgba(255,255,255,0.1);border:none;color:white;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+    </div>
+
+    <!-- Meta bar -->
+    <div style="background:var(--green);padding:0.85rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;">
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Effective: <strong style="color:white;">March 2026</strong></span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Jurisdiction: <strong style="color:white;">NSW, Australia</strong></span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Venues: <strong style="color:white;">Waverley Park · Northbridge Park · Glebe</strong></span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Version: <strong style="color:white;">1.0</strong></span>
+    </div>
+
+    <div style="padding:2rem;font-family:'Lato',sans-serif;">
+
+      <!-- Trial lesson highlight -->
+      <div style="background:#e8f7f0;border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:2rem;">
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem;">🎾 Trial Lesson Offer</div>
+        <p style="font-size:0.9rem;color:var(--dark);line-height:1.7;">All prices are fully inclusive — court is included in every rate. Trial: Waverley <strong>$90</strong> · Northbridge <strong>$70</strong> · Glebe <strong>$90</strong>. Standard: Waverley <strong>$130</strong> · Northbridge <strong>$110</strong> · Glebe <strong>$130</strong>. 4-session pack: Waverley <strong>$110</strong> · Northbridge <strong>$90</strong> · Glebe <strong>$110</strong> per session.</p>
+      </div>
+
+      <!-- TC Sections -->
+      <div class="tc-inner">
+
+        <!-- Section styles scoped inside modal -->
+        <style>
+          .tc-inner .tcs { background:white; border:1px solid #d4e0da; border-radius:8px; margin-bottom:1rem; overflow:hidden; }
+          .tc-inner .tcs-head { display:flex; align-items:center; gap:0.75rem; padding:0.85rem 1.25rem; border-bottom:1px solid #d4e0da; cursor:pointer; background:#e8f7f0; }
+          .tc-inner .tcs-head:hover { background:#d4eee0; }
+          .tc-inner .tcs-num { width:26px; height:26px; border-radius:50%; background:var(--green); color:white; font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+          .tc-inner .tcs-title { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--green); flex:1; }
+          .tc-inner .tcs-arrow { font-size:0.8rem; color:var(--green); transition:transform 0.2s; }
+          .tc-inner .tcs-body { padding:1.25rem; display:none; }
+          .tc-inner .tcs-body.open { display:block; }
+          .tc-inner .clause { margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid #edf3ef; }
+          .tc-inner .clause:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+          .tc-inner .clause-title { font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); margin-bottom:0.5rem; }
+          .tc-inner p { font-size:0.88rem; line-height:1.75; color:#5a6e63; margin-bottom:0.6rem; }
+          .tc-inner p:last-child { margin-bottom:0; }
+          .tc-inner ul { padding-left:1.2rem; margin:0.4rem 0 0.6rem; }
+          .tc-inner ul li { font-size:0.88rem; line-height:1.65; color:#5a6e63; margin-bottom:0.35rem; }
+          .tc-inner ul li strong { color:var(--dark); }
+          .tc-inner .callout { border-radius:0 6px 6px 0; padding:0.9rem 1.1rem; margin:0.75rem 0; font-size:0.88rem; line-height:1.7; }
+          .tc-inner .callout-orange { background:#fdf0e8; border-left:4px solid #c8541a; color:var(--dark); }
+          .tc-inner .callout-green { background:#e8f7f0; border-left:4px solid var(--green); color:var(--dark); }
+          .tc-inner .callout-label { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#c8541a; margin-bottom:0.35rem; }
+          .tc-inner .callout-green .callout-label { color:var(--green); }
+          .tc-inner table { width:100%; border-collapse:collapse; font-size:0.82rem; margin:0.75rem 0; }
+          .tc-inner th { background:#e8f7f0; padding:0.6rem 0.85rem; text-align:left; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); border:1px solid #d4e0da; }
+          .tc-inner td { padding:0.6rem 0.85rem; border:1px solid #d4e0da; color:#5a6e63; vertical-align:top; }
+          .tc-inner .badge-green { background:#e8f7f0; color:var(--green); padding:2px 8px; border-radius:3px; font-size:0.78rem; font-weight:700; }
+          .tc-inner .badge-orange { background:#fdf0e8; color:#c8541a; padding:2px 8px; border-radius:3px; font-size:0.78rem; font-weight:700; }
+          .tc-inner .badge-red { background:#fdecea; color:#b02020; padding:2px 8px; border-radius:3px; font-size:0.78rem; font-weight:700; }
+          .tc-inner .loc-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.75rem; }
+          .tc-inner .loc-card { border:1px solid #d4e0da; border-radius:6px; overflow:hidden; }
+          .tc-inner .loc-head { background:var(--green); color:white; padding:0.6rem 0.85rem; font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; }
+          .tc-inner .loc-head span { font-size:0.72rem; font-weight:400; opacity:0.75; display:block; }
+          .tc-inner .loc-row { display:flex; gap:0.5rem; padding:0.4rem 0.85rem; border-bottom:1px solid #edf3ef; font-size:0.8rem; }
+          .tc-inner .loc-row:last-child { border-bottom:none; }
+          .tc-inner .loc-label { font-weight:700; color:var(--dark); min-width:60px; flex-shrink:0; }
+          .tc-inner .loc-val { color:#5a6e63; }
+          @media(max-width:600px){ .tc-inner .loc-grid { grid-template-columns:1fr; } .tc-inner table { font-size:0.75rem; } }
+        </style>
+
+        <!-- 1. About -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">1</div><div class="tcs-title">About Jack & Coaching Services</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">The Coach</div><p>These Terms govern all tennis coaching services provided by Jack, operating as an independent freelance tennis coach in the Eastern Suburbs of Sydney, NSW. By booking a session, making payment, or signing the Liability Waiver, the client agrees to be bound by these Terms in full.</p></div>
+          <div class="clause"><div class="clause-title">Qualifications</div><ul><li><strong>Tennis Australia Accreditation</strong> — current and valid</li><li><strong>Court permit</strong> — Eastern Suburbs community tennis courts</li><li><strong>Sport Science student</strong> — University of Technology Sydney (UTS)</li><li><strong>3+ years swim coaching experience</strong></li><li><strong>ATPCA insurance</strong> — currently pending; interim policy applies</li></ul></div>
+          <div class="clause"><div class="clause-title">Services Offered</div><ul><li>One-on-one private lessons (60 min) — complete beginners and casual players looking to improve</li><li>Small group sessions (2–4 players)</li><li>Beginner fundamentals programs</li></ul></div>
+          <div class="clause"><div class="clause-title">Eligibility</div><p>By booking a session you confirm you are aged 18 or over, are physically capable of participating in recreational tennis, and have disclosed any relevant medical conditions prior to your first session.</p></div>
+        </div></div>
+
+        <!-- 2. Court Locations -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">2</div><div class="tcs-title">Court Locations</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause">
+            <div class="clause-title">Priority Venue — Waverley Park (First Preference)</div>
+            <div style="background:#e8f7f0;border-left:4px solid var(--green);border-radius:0 6px 6px 0;padding:0.85rem 1rem;margin-bottom:0.75rem;">
+              <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.35rem;">⭐ Primary Coaching Venue</div>
+              <p style="font-size:0.82rem;color:var(--dark);line-height:1.7;margin-bottom:0.5rem;"><strong>Waverley Park Multipurpose Courts</strong> is Jack's default and first-preference venue for all coaching sessions. When a client books a session, Waverley Park will be offered as the primary location unless it is unavailable due to court booking conflicts, weather, or client location preference.</p>
+              <ul style="font-size:0.82rem;color:#5a6e63;padding-left:1rem;line-height:1.7;">
+                <li><strong>Address:</strong> Cnr Goldie Avenue & James Street, New South Wales 2022</li>
+                <li><strong>Courts:</strong> 3 multipurpose courts suitable for tennis, netball and basketball</li>
+                <li><strong>Lights:</strong> Yes — available until 10pm daily</li>
+                <li><strong>Parking:</strong> Street parking available nearby</li>
+                <li><strong>Public transport:</strong> Accessible via bus routes in the area</li>
+                <li><strong>Booking:</strong> Jack arranges the court — all costs fully included in your session rate</li>
+                <li><strong>Booking:</strong> Jack books via Waverley Council's online system</li>
+              </ul>
+            </div>
+          </div>
+          <div class="clause"><div class="clause-title">Alternative Venues</div>
+            <p style="font-size:0.82rem;color:#5a6e63;margin-bottom:0.75rem;">If Waverley Park is unavailable or a different location better suits the client, sessions may be held at one of the following alternative venues. Jack will always confirm the venue in writing before payment is requested.</p>
+            <div class="loc-grid" style="grid-template-columns:1fr 1fr;">
+              <div class="loc-card">
+                <div class="loc-head">Northbridge Park <span>Northbridge NSW 2063</span></div>
+                <div class="loc-row"><span class="loc-label">Address</span><span class="loc-val">Northbridge Park &amp; Memorial Reserve, Sailors Bay Road, Northbridge NSW 2063</span></div>
+                <div class="loc-row"><span class="loc-label">Type</span><span class="loc-val">Multipurpose court</span></div>
+                <div class="loc-row"><span class="loc-label">Lights</span><span class="loc-val">Yes — evening sessions available</span></div>
+                <div class="loc-row"><span class="loc-label">Pricing</span><span class="loc-val">Fully included in session rate</span></div>
+              </div>
+              <div class="loc-card">
+                <div class="loc-head">Glebe Tennis Court <span>Glebe NSW 2037</span></div>
+                <div class="loc-row"><span class="loc-label">Address</span><span class="loc-val">St James Park, Glebe NSW 2037</span></div>
+                <div class="loc-row"><span class="loc-label">Type</span><span class="loc-val">Hard tennis court</span></div>
+                <div class="loc-row"><span class="loc-label">Lights</span><span class="loc-val">Yes — until 10pm</span></div>
+                <div class="loc-row"><span class="loc-label">Pricing</span><span class="loc-val">Fully included in session rate</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="clause"><div class="clause-title">All-Inclusive Pricing</div><p>Every session rate is fully all-inclusive. Jack arranges the court booking — clients pay one flat rate with no additional fees on top. There is no separate court hire charge at any venue.</p></div>
+          <div class="clause"><div class="clause-title">Court Rules & Conduct</div><ul><li>Wear non-marking court shoes at all times</li><li>No food or glass on the court surface</li><li>Vacate the court promptly at session end</li><li>Follow any venue staff instructions</li></ul><p>Any damage caused by a client is their financial responsibility.</p></div>
+          <div class="clause"><div class="clause-title">Equipment</div><p>Jack supplies tennis balls. Clients bring their own racket. Loaner rackets may be arranged at Jack's discretion — request at least 24 hours in advance.</p></div>
+        </div></div>
+
+        <!-- 3. Booking & Payment -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">3</div><div class="tcs-title">Booking & Payment</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">How to Book</div><p>Book directly with Jack via phone, email, or the website booking link. A booking is not confirmed until Jack has responded in writing confirming the date, time, location and session fee.</p></div>
+          <div class="clause"><div class="clause-title">Trial Lesson — First Session</div>
+            <div class="callout callout-green"><div class="callout-label">Trial Lesson Offer</div>New clients get their first session at a discounted trial rate — everything included, no hidden fees. Available once per new client.</div>
+          </div>
+          <div class="clause"><div class="clause-title">Session Fees — All-Inclusive Pricing</div>
+            <p style="margin-bottom:0.75rem;">All prices are fully inclusive — one flat rate, no hidden fees. Court is included in every session.</p>
+
+            <!-- 1-on-1 header -->
+            <div style="background:var(--green);color:white;border-radius:5px 5px 0 0;padding:0.4rem 0.75rem;display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">👤 1-on-1 Sessions</span>
+              <span style="font-size:0.62rem;color:rgba(255,255,255,0.7);">✓ Free 15-min discovery call included</span>
+            </div>
+            <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin-bottom:0.85rem;border:1px solid #d4e0da;border-top:none;">
+              <thead><tr style="background:#e8f7f0;"><th style="padding:0.4rem 0.6rem;text-align:left;border:1px solid #d4e0da;color:var(--green);">Session Type</th><th style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;color:var(--green);">Waverley</th><th style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;color:var(--green);">Northbridge</th><th style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;color:var(--green);">Glebe</th></tr></thead>
+              <tbody>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;"><strong>Trial</strong> · 60 min · first session only</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$90</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$70</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$90</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;"><strong>Standard</strong> · 60 min · session 2+</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$130</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$110</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;">$130</td></tr>
+                <tr style="background:#f7fbf8;"><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;"><strong>4-Session Pack</strong> · per session · once per new client · <span style="color:var(--clay);font-weight:700;">credits valid 6 months</span></td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$110</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$90</td><td style="padding:0.4rem 0.6rem;border:1px solid #d4e0da;text-align:center;font-weight:700;color:var(--clay);">$110</td></tr>
+              </tbody>
+            </table>
+
+            <!-- Group header -->
+            <div style="background:var(--clay);color:white;border-radius:5px 5px 0 0;padding:0.4rem 0.75rem;display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">👥 Group Sessions — 2–4 People</span>
+              <span style="font-size:0.62rem;color:rgba(255,255,255,0.7);">✗ No discovery call</span>
+            </div>
+            <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin-bottom:0.5rem;border:1px solid #f0d4c0;border-top:none;">
+              <thead><tr style="background:#fdf0e8;"><th style="padding:0.4rem 0.6rem;text-align:left;border:1px solid #f0d4c0;color:var(--clay);">Group Size</th><th style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;color:var(--clay);">Waverley</th><th style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;color:var(--clay);">Northbridge</th><th style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;color:var(--clay);">Glebe</th></tr></thead>
+              <tbody>
+                <tr><td colspan="4" style="padding:0.35rem 0.6rem;border:1px solid #f0d4c0;background:#fdf8f5;font-size:0.72rem;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:0.05em;">Trial · per group total</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 2 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$90</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$70</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$90</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 3 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$105</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$85</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$105</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 4 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$120</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$100</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$120</td></tr>
+                <tr><td colspan="4" style="padding:0.35rem 0.6rem;border:1px solid #f0d4c0;background:#fdf8f5;font-size:0.72rem;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:0.05em;">Standard · per person · session 2+</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 2 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$60 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$50 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$55 each</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 3 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$50 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$40 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$45 each</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 4 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$45 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$35 each</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;">$40 each</td></tr>
+                <tr><td colspan="4" style="padding:0.35rem 0.6rem;border:1px solid #f0d4c0;background:#fdf8f5;font-size:0.72rem;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:0.05em;">4-Session Pack · per person · once per new group · credits valid 6 months</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 2 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$55 each · $440</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$45 each · $360</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$50 each · $400</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 3 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$45 each · $540</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$35 each · $420</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$40 each · $480</td></tr>
+                <tr><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;">👥 4 people</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$40 each · $640</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$30 each · $480</td><td style="padding:0.4rem 0.6rem;border:1px solid #f0d4c0;text-align:center;font-weight:700;color:var(--clay);">$35 each · $560</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:0.72rem;color:#5a6e63;">All prices in AUD · GST-free · court fully included in every rate.</p>
+          </div>
+          <div class="clause"><div class="clause-title">Payment Before Session — No Exceptions</div>
+            <div class="callout callout-orange"><div class="callout-label">Strict Policy</div>Payment must be made in full before every session — including the $40 trial lesson. No pay-on-the-day.</div>
+          </div>
+          <div class="clause"><div class="clause-title">Payment Method — Stripe Only</div><ul><li>Visa, Mastercard, Amex, Apple Pay, Google Pay via Stripe</li><li><strong>No cash, bank transfer, PayID or cheque</strong></li></ul><p>A Stripe payment link is sent at booking confirmation. Jack does not store card details.</p></div>
+          <div class="clause"><div class="clause-title">Payment & Scheduling</div>
+            <div class="callout callout-green"><div class="callout-label">Payment is charged immediately</div>When you pay via Stripe, your payment is processed immediately and funds leave your account straight away. You will receive a Stripe receipt via email upon successful payment.</div>
+            <ul style="margin-top:0.5rem;">
+              <li><strong>Payment:</strong> Processed immediately via Stripe upon checkout</li>
+              <li><strong>Scheduling:</strong> After payment, Jack sends you a Cal.com booking link. When you select a time slot, your booking will show as <strong>pending</strong> until Jack manually confirms it. Your selected time slot is held and unavailable to others during this period.</li>
+              <li><strong>Confirmation:</strong> Jack will accept or decline your booking as soon as possible. You will receive an email notification either way.</li>
+              <li><strong>If Jack cannot confirm:</strong> A full refund will be issued via Stripe — typically 5–10 business days back to your card</li>
+              <li><strong>Cancellation (48+ hours notice):</strong> Full refund via Stripe</li>
+              <li><strong>Cancellation (under 48 hours):</strong> No refund — see Cancellation Policy</li>
+            </ul>
+          </div>
+          <div class="clause"><div class="clause-title">Waiver Required First</div><div class="callout callout-orange"><div class="callout-label">Required Before Payment</div>The signed Liability Waiver must be completed before payment is made and before the first session commences.</div></div>
+          <div class="clause"><div class="clause-title">Pricing Changes</div><p>Jack may adjust session fees at any time with minimum 14 days' notice to existing clients. Changes will not apply retrospectively to pre-paid sessions.</p></div>
+        </div></div>
+
+        <!-- 4. Cancellation -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">4</div><div class="tcs-title">Cancellation & Rescheduling</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Cancellation schedule</div>
+            <table><thead><tr><th>Notice Given</th><th>Cancellation</th><th>Reschedule</th></tr></thead><tbody>
+              <tr><td><strong>More than 48 hours</strong></td><td><span class="badge-green">Full refund via Stripe</span></td><td><span class="badge-green">Free</span></td></tr>
+              <tr><td><strong>Less than 48 hours</strong></td><td><span class="badge-red">No refund</span></td><td><span class="badge-red">Jack's discretion</span></td></tr>
+              <tr><td><strong>No-show</strong></td><td><span class="badge-red">Full fee forfeited</span></td><td><span class="badge-red">N/A</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="clause"><div class="clause-title">Medical certificate exception</div>
+            <div class="callout callout-green"><div class="callout-label">Medical Exception</div>If you fall sick and provide a valid <strong>medical certificate or doctor's note within 24 hours</strong> of the missed session, a full session credit will be issued regardless of the notice period.</div>
+            <ul style="margin-top:0.5rem">
+              <li>Credit valid for <strong>3 months</strong> from the missed session date</li>
+              <li>Session credit only — not a cash refund</li>
+              <li>Any court booking costs already incurred by Jack are non-recoverable in this case</li>
+              <li>Applies <strong>once per client per 6-month period</strong> — after that, Jack's discretion applies</li>
+              <li>Must be a GP or medical centre certificate — pharmacy receipts not accepted</li>
+            </ul>
+          </div>
+        </div></div>
+
+        <!-- 5. Refunds -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">5</div><div class="tcs-title">Refund Policy</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Full cash refunds</div><p>A full Stripe refund is issued when: client cancels with <strong>more than 48 hours notice</strong>; or Jack cancels and cannot offer a make-up within 30 days.</p></div>
+          <div class="clause"><div class="clause-title">Session credits</div><p>A session credit (make-up lesson) is issued when: Jack cancels for weather/illness and a make-up is available; session is weather-interrupted; court becomes unavailable; or valid medical certificate is provided within 24 hours.</p><div class="callout callout-green"><div class="callout-label">Credit expiry</div>All session credits expire <strong>3 months from the date of issue</strong>. Non-transferable, not redeemable for cash.</div></div>
+          <div class="clause"><div class="clause-title">Non-refundable</div><ul><li>Cancellation under 48 hours (no medical certificate)</li><li>Client no-show</li><li>Late arrival where session can't be completed</li><li>Removal from session due to conduct</li></ul></div>
+        </div></div>
+
+        <!-- 6. Late Arrivals -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">6</div><div class="tcs-title">Late Arrivals & No-Shows</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Late Arrivals</div><p>Sessions begin at the scheduled start time. No extension for late arrival, no partial refund. Jack waits a maximum of <strong>15 minutes</strong> before treating the session as a no-show — however this can be negotiated with Jack on the day. Contact Jack directly if you are running late.</p></div>
+          <div class="clause"><div class="clause-title">Coach Late</div><p>If Jack is 15+ minutes late without prior notice, the client is entitled to a full refund or free reschedule at their choice.</p></div>
+        </div></div>
+
+        <!-- 7. Weather -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">7</div><div class="tcs-title">Weather & Court Conditions</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Wet Weather Policy</div><p>No cash refunds for weather. A session credit (make-up lesson) is issued instead. Jack has <strong>sole discretion</strong> to determine if conditions are unplayable. Do not assume cancelled unless Jack contacts you directly.</p></div>
+          <div class="clause"><div class="clause-title">Session Interrupted</div><ul><li><strong>Under 20 min played</strong> — full session credit</li><li><strong>20–40 min played</strong> — partial credit at Jack's discretion</li><li><strong>Over 40 min of 60 played</strong> — session considered complete, no credit</li></ul></div>
+          <div class="clause"><div class="clause-title">Extreme Heat & Lightning</div><p>Sessions may be cancelled above 38°C or in lightning. Same credit policy applies. Lightning = immediate court evacuation.</p></div>
+        </div></div>
+
+        <!-- 8. Conduct -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">8</div><div class="tcs-title">Code of Conduct</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Expected Behaviour</div><ul><li>Treat the coach and all others with respect</li><li>Arrive on time, appropriately dressed</li><li>Follow safety instructions without argument</li><li>Do not attend under the influence of alcohol or substances</li><li>Disclose any new injury before every session</li></ul></div>
+          <div class="clause"><div class="clause-title">Right to Terminate</div><p>Jack may end a session immediately without refund for abusive behaviour, refusal to follow safety instructions, or conduct endangering others.</p></div>
+        </div></div>
+
+        <!-- 9. Health & Safety -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">9</div><div class="tcs-title">Health & Safety</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Medical Disclosure</div><p>Clients must disclose all pre-existing injuries, medical conditions and physical limitations before their first session, and notify Jack of any changes before each subsequent session.</p></div>
+          <div class="clause"><div class="clause-title">First Aid</div><p>Jack holds a current First Aid certification. In the event of a medical emergency during a session, Jack will provide first aid and call emergency services if required.</p></div>
+        </div></div>
+
+        <!-- 10–13 combined -->
+        <div class="tcs"><div class="tcs-head" onclick="toggleTC(this)"><div class="tcs-num">10–13</div><div class="tcs-title">Cancellation, Media, Privacy & Governing Law</div><div class="tcs-arrow">▾</div></div>
+        <div class="tcs-body">
+          <div class="clause"><div class="clause-title">Coach's Right to Cancel</div><p>Jack may cancel for illness, family emergency, unsafe conditions or court unavailability. Clients receive a make-up credit or full Stripe refund if no make-up is available within 30 days.</p></div>
+          <div class="clause"><div class="clause-title">Photography & Video</div><p>Jack may film technique clips for coaching feedback shared to the client only. No promotional use of client footage without explicit written consent. Clients may record their own sessions for personal review only.</p></div>
+          <div class="clause"><div class="clause-title">Privacy</div><p>Personal information is collected for coaching purposes only and is not sold or shared with third parties. Session and health records are retained for a minimum of 3 years.</p></div>
+          <div class="clause"><div class="clause-title">Governing Law</div><p>These Terms are governed by the laws of New South Wales, Australia. Disputes are first addressed informally; if unresolved within 14 days, either party may escalate through NSW Fair Trading.</p></div>
+          <div class="clause"><div class="clause-title">Contact</div><ul><li><strong>Phone/SMS:</strong> 0426 752 877</li><li><strong>Location:</strong> Eastern Suburbs, Sydney NSW</li><li><strong>Response time:</strong> within 2 business days</li></ul></div>
+        </div></div>
+
+      </div><!-- end tc-inner -->
+
+      <!-- Acceptance footer -->
+      <div style="margin-top:2rem;background:var(--dark);border-radius:8px;padding:1.5rem 2rem;text-align:center;">
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.25rem;">By proceeding to payment you confirm you have read and agree to these Terms & Conditions in full. You must also complete the Liability Waiver before your first session.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <button onclick="closeTC()" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.85rem 2rem;border-radius:4px;font-family:'Lato',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Close</button>
+        </div>
+      </div>
+
+    </div><!-- end padding div -->
+  </div><!-- end modal inner -->
+</div><!-- end modal -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <svg width="210" height="44" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="20" fill="#c8541a"/>
+      <path d="M3 22 Q22 10 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <path d="M3 22 Q22 34 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <text x="52" y="17" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="white">START</text>
+      <line x1="52" y1="20" x2="208" y2="20" stroke="rgba(255,255,255,0.15)" stroke-width="0.75"/>
+      <text x="52" y="34" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#f4784a">TENNIS SYDNEY</text>
+    </svg>
+  </a>
+  <div class="footer-text">StartTennisSydney.com.au · Eastern Suburbs, Sydney NSW · UTS Sport Science</div>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;">
+    <a href="terms.html" style="font-size:0.78rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms & Conditions</a>
+    <a href="waiver.html" style="font-size:0.78rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Liability Waiver</a>
+    <div class="footer-text">© 2026 Start Tennis Sydney. All rights reserved.</div>
+  </div>
+  <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);">For any enquiries or questions</span>
+    <a href="sms:0426752877" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--clay);color:white;padding:0.55rem 1.25rem;border-radius:100px;font-family:'Lato',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--clay-light)'" onmouseout="this.style.background='var(--clay)'">📱 0426 752 877</a>
+  </div>
+</footer>
+
+<!-- PHOTO GALLERY MODAL -->
+<div id="photoModal" style="display:none;position:fixed;inset:0;z-index:998;background:rgba(14,26,20,0.92);backdrop-filter:blur(6px);overflow-y:auto;padding:2rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;background:var(--dark);border-radius:12px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.5);">
+
+    <!-- Header -->
+    <div style="padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:white;letter-spacing:0.04em;">Meet Jack <span style="color:var(--clay-light);">.</span></div>
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px;">Founder · Tennis Coach · Eastern Suburbs, Sydney</div>
+      </div>
+      <button onclick="closePhotos()" style="background:rgba(255,255,255,0.1);border:none;color:white;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+    </div>
+
+    <!-- Photos grid -->
+    <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr;height:360px;">
+      <div style="position:relative;overflow:hidden;">
+        <img src="IMG_7430.jpg" alt="Jack on court" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;background:linear-gradient(transparent,rgba(14,26,20,0.9));"><span style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.8);">On Court</span></div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-left:2px solid rgba(255,255,255,0.06);">
+        <img src="IMG_4918.JPG" alt="Jack at the courts at night" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;background:linear-gradient(transparent,rgba(14,26,20,0.9));"><span style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.8);">After Hours</span></div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-left:2px solid rgba(255,255,255,0.06);">
+        <img src="IMG_8257.jpg" alt="Jack skiing" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;background:linear-gradient(transparent,rgba(14,26,20,0.9));"><span style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Off Court</span></div>
+      </div>
+    </div>
+
+    <!-- Bio snippet -->
+    <div style="padding:2rem;border-top:1px solid rgba(255,255,255,0.08);">
+      <div style="display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+        <div style="flex:1;min-width:240px;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay-light);margin-bottom:0.6rem;">About Jack</div>
+          <p style="font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:0.85rem;">Jack is the founder of Start Tennis Sydney and a Sport Science student at UTS. With 8 years of playing experience and a background in coaching, he's building something bigger than lessons — a community of passionate coaches dedicated to getting beginners to the fun part of the game, fast.</p>
+          <p style="font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:0.85rem;">The vision is simple: skip the frustrating grind and get you into real rallies, intense hit-outs with friends, and those moments on court you actually want to talk about.</p>
+          <p style="font-size:0.88rem;font-style:italic;color:rgba(255,255,255,0.45);line-height:1.75;border-left:3px solid var(--clay);padding-left:1rem;">"Growing up I struggled with tennis — not from lack of drive, but because no one explained the basics clearly. That's exactly why I built this. Too many beginners never make it to the fun part. We're changing that."</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;min-width:180px;">
+          <div style="background:rgba(200,84,26,0.2);border:1px solid rgba(200,84,26,0.4);border-radius:6px;padding:0.75rem 1rem;display:flex;gap:0.75rem;align-items:center;">
+            <span style="font-size:1.1rem;">🏗️</span>
+            <div><div style="font-size:0.78rem;font-weight:700;color:white;">Founder</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);">Start Tennis Sydney</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:6px;padding:0.75rem 1rem;display:flex;gap:0.75rem;align-items:center;">
+            <span style="font-size:1.1rem;">🎓</span>
+            <div><div style="font-size:0.78rem;font-weight:700;color:white;">UTS Sport Science</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);">Current student</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:6px;padding:0.75rem 1rem;display:flex;gap:0.75rem;align-items:center;">
+            <span style="font-size:1.1rem;">🎾</span>
+            <div><div style="font-size:0.78rem;font-weight:700;color:white;">8 Years Playing</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);">Tennis player</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:6px;padding:0.75rem 1rem;display:flex;gap:0.75rem;align-items:center;">
+            <span style="font-size:1.1rem;">🏫</span>
+            <div><div style="font-size:0.78rem;font-weight:700;color:white;">Scots College</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);">Alumnus</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:6px;padding:0.75rem 1rem;display:flex;gap:0.75rem;align-items:center;">
+            <span style="font-size:1.1rem;">📍</span>
+            <div><div style="font-size:0.78rem;font-weight:700;color:white;">Eastern Suburbs</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.4);">Sydney NSW</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="onboard.html" style="display:inline-block;background:var(--clay);color:white;padding:0.75rem 1.75rem;border-radius:4px;font-family:'Lato',sans-serif;font-size:0.83rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">Book a Trial Session →</a>
+        <a href="tel:0426752877" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);padding:0.75rem 1.5rem;border-radius:4px;font-family:'Lato',sans-serif;font-size:0.83rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">📞 0426 752 877</a>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.35);">For any enquiries, call or text Jack directly.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function switchGroup(type) {
+    const solo = document.getElementById('prices-solo');
+    const group = document.getElementById('prices-group');
+    const tabSolo = document.getElementById('tab-solo');
+    const tabGroup = document.getElementById('tab-group');
+    if (type === 'solo') {
+      solo.style.display = 'grid';
+      group.style.display = 'none';
+      tabSolo.style.background = '#0e1a14';
+      tabSolo.style.color = '#ffffff';
+      tabGroup.style.background = 'transparent';
+      tabGroup.style.color = '#6b7f74';
+    } else {
+      solo.style.display = 'none';
+      group.style.display = 'grid';
+      tabGroup.style.background = '#0e1a14';
+      tabGroup.style.color = '#ffffff';
+      tabSolo.style.background = 'transparent';
+      tabSolo.style.color = '#6b7f74';
+    }
+  }
+  function openPhotos() {
+    document.getElementById('photoModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closePhotos() {
+    document.getElementById('photoModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  const _photoModal = document.getElementById('photoModal');
+  if (_photoModal) _photoModal.addEventListener('click', function(e) {
+    if (e.target === this) closePhotos();
+  });
+
+  // TC modal
+  function openTC() {
+    document.getElementById('tcModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTC() {
+    document.getElementById('tcModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function toggleTC(head) {
+    const body = head.nextElementSibling;
+    const arrow = head.querySelector('.tcs-arrow');
+    const isOpen = body.classList.toggle('open');
+    arrow.style.transform = isOpen ? 'rotate(180deg)' : '';
+  }
+  const _tcModal = document.getElementById('tcModal');
+  if (_tcModal) _tcModal.addEventListener('click', function(e) {
+    if (e.target === this) closeTC();
+  });
+
+  // Close both modals on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeTC(); closePhotos(); }
+  });
+
+  // Smooth scroll + fade-in for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.session-card, .price-card, .stat-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // Nav scroll highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === '#' + current) link.style.color = 'var(--green)';
+    });
+  });
+
+  // Venue picker
+  function openVenuePicker() {
+    document.getElementById('venueModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVenuePicker() {
+    document.getElementById('venueModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  const _venueModal = document.getElementById('venueModal');
+  if (_venueModal) _venueModal.addEventListener('click', function(e) {
+    if (e.target === this) closeVenuePicker();
+  });
+</script>
+
+<!-- VENUE PICKER MODAL -->
+<div id="venueModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(14,26,20,0.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1.5rem;">
+  <div style="background:var(--white);border-radius:16px;max-width:480px;width:100%;padding:2rem;position:relative;">
+
+    <!-- Close -->
+    <button onclick="closeVenuePicker()" style="position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,0.07);border:none;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;color:var(--mid);">✕</button>
+
+    <!-- Header -->
+    <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay);margin-bottom:0.4rem;">Step 1 of 2 — Choose your venue</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;text-transform:uppercase;color:var(--dark);margin-bottom:0.4rem;">Book Your Trial Session</div>
+    <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;">Select a venue below. You'll be taken to a secure Stripe payment page. After payment, you'll receive your booking links for the discovery call and on-court session.</p>
+
+    <!-- Venue options -->
+    <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+
+      <!-- Waverley -->
+      <a href="https://buy.stripe.com/9B6aEWfr4dFK2pk0a32Ji02" target="_blank" style="display:flex;justify-content:space-between;align-items:center;background:var(--green);border-radius:10px;padding:1rem 1.25rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+        <div>
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:0.2rem;">⭐ Priority Venue</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;color:white;">Waverley Park</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);">Cnr Goldie Avenue &amp; James Street, NSW 2022</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:white;line-height:1;">$90</div>
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.6);">60 min · all-inclusive</div>
+        </div>
+      </a>
+
+      <!-- Northbridge -->
+      <a href="https://buy.stripe.com/8x2aEWdiWeJObZU6yr2Ji01" target="_blank" style="display:flex;justify-content:space-between;align-items:center;background:var(--green-pale);border-radius:10px;padding:1rem 1.25rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+        <div>
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.2rem;">Alternative Venue</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;color:var(--dark);">Northbridge Park</div>
+          <div style="font-size:0.72rem;color:var(--muted);">Northbridge Park &amp; Memorial Reserve, Sailors Bay Rd, Northbridge NSW 2063</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1;">$70</div>
+          <div style="font-size:0.65rem;color:var(--muted);">60 min · all-inclusive</div>
+        </div>
+      </a>
+
+      <!-- Glebe -->
+      <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.04);border-radius:10px;padding:1rem 1.25rem;opacity:0.5;cursor:not-allowed;">
+        <div>
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.2rem;">Alternative Venue</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;color:var(--dark);">Glebe Tennis Court</div>
+          <div style="font-size:0.72rem;color:var(--muted);">St James Park, Glebe NSW 2037</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1;">$90</div>
+          <div style="font-size:0.65rem;color:var(--muted);">60 min · all-inclusive</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Footer note -->
+    <div style="display:flex;align-items:center;gap:0.5rem;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.07);">
+      <span style="font-size:1rem;">🔒</span>
+      <p style="font-size:0.72rem;color:var(--muted);line-height:1.5;">Secure payment via Stripe. After payment you'll receive links to book your discovery call and on-court session.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
