@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial Confirmed — Start Tennis Sydney</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #1a7a54; --green-light: #24a870; --green-pale: #e6f7f0;
+    --clay: #c8541a; --clay-light: #f4784a;
+    --dark: #0e1a14; --mid: #2b3d33; --muted: #6b7f74;
+    --off-white: #f7f9f7; --white: #ffffff;
+  }
+  body { font-family: 'Lato', sans-serif; background: var(--off-white); color: var(--dark); min-height: 100vh; }
+
+  nav { background: var(--dark); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .back-link { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .back-link:hover { color: var(--clay-light); }
+
+  .hero { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
+  .hero-check { width: 56px; height: 56px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+  .hero-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.65rem; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; text-transform: uppercase; color: white; line-height: 1.05; margin-bottom: 0.85rem; }
+  .hero h1 span { color: var(--clay-light); }
+  .hero p { font-size: 0.9rem; color: rgba(255,255,255,0.5); max-width: 420px; margin: 0 auto; line-height: 1.8; }
+
+  .wrap { max-width: 680px; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+  .section-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 1.5rem; }
+
+  .step { background: var(--white); border-radius: 14px; padding: 1.75rem; margin-bottom: 0.75rem; border: 1.5px solid rgba(0,0,0,0.07); }
+  .step.active { border: 2px solid var(--green); }
+  .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+  .step-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; color: white; flex-shrink: 0; }
+  .num-green { background: var(--green); }
+  .num-clay { background: var(--clay); }
+  .step-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .ey-green { color: var(--green); }
+  .ey-clay { color: var(--clay); }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: var(--dark); line-height: 1; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+  .pill { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; }
+  .pill-g { background: var(--green-pale); color: var(--green); }
+  .pill-c { background: #fdf0e8; color: var(--clay); }
+  .pill-n { background: rgba(0,0,0,0.05); color: var(--mid); }
+
+  .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .covers-box { background: var(--green-pale); border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 1.25rem; }
+  .covers-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
+  .covers-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .covers-list li { font-size: 0.82rem; color: var(--mid); display: flex; gap: 0.6rem; line-height: 1.5; }
+  .covers-list li span { color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  .book-btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
+  .book-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-g { background: var(--green); color: white; }
+  .btn-c { background: var(--clay); color: white; }
+
+  .connector { text-align: center; font-size: 1.1rem; color: rgba(0,0,0,0.12); padding: 0.25rem 0; margin-bottom: 0.75rem; }
+
+  .tip-box { background: var(--green-pale); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin-top: 1.5rem; }
+  .tip-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green); margin-bottom: 0.35rem; }
+  .tip-box p { font-size: 0.82rem; color: var(--mid); line-height: 1.7; }
+
+  footer { background: var(--dark); padding: 1.5rem 2rem; text-align: center; }
+  footer p { font-size: 0.73rem; color: rgba(255,255,255,0.3); line-height: 1.9; }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: var(--clay-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0.85rem 1rem; }
+    .hero { padding: 2.5rem 1.25rem; }
+    .hero h1 { font-size: 2rem; }
+    .wrap { padding: 2rem 1rem 2.5rem; }
+    .step { padding: 1.25rem; }
+    .step-header { flex-direction: row; gap: 0.75rem; align-items: flex-start; }
+    .pills { flex-wrap: wrap; gap: 0.35rem; }
+    .book-btn { text-align: center; display: block; }
+    .covers-list { padding-left: 0; }
+    .section-label { font-size: 0.6rem; }
+    .connector { font-size: 0.75rem; padding: 0.5rem; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.7rem; }
+    .step-num { width: 32px; height: 32px; font-size: 1rem; flex-shrink: 0; }
+    nav svg { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://starttennissydney.com">
+    <svg width="150" height="30" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="20" fill="#c8541a"/>
+      <path d="M3 22 Q22 10 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <path d="M3 22 Q22 34 41 22" stroke="white" stroke-width="2.5" fill="none"/>
+      <text x="52" y="17" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="white">START</text>
+      <line x1="52" y1="20" x2="208" y2="20" stroke="rgba(255,255,255,0.15)" stroke-width="0.75"/>
+      <text x="52" y="34" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#f4784a">TENNIS SYDNEY</text>
+    </svg>
+  </a>
+  <a href="https://starttennissydney.com" class="back-link">← Back to site</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-check">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+      <path d="M6 16L13 23L26 9" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="hero-tag" id="heroTag">Payment confirmed ✓</div>
+  <h1 id="heroTitle">You're In.<br><span>Two steps to complete.</span></h1>
+  <p id="heroSub">Your trial is confirmed and paid. Follow the two steps below <strong>in order</strong> — discovery call first, then on-court session.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="section-label" id="sectionLabel">Complete both steps below — in order</div>
+
+  <!-- STEP 1 — DISCOVERY CALL -->
+  <div class="step active" id="step1Block">
+    <div class="step-header">
+      <div class="step-num num-green">1</div>
+      <div>
+        <div class="step-eyebrow ey-green">Do this first — 1-on-1 exclusive</div>
+        <div class="step-title">Your Private Discovery Call</div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill pill-g">15 minutes</span>
+      <span class="pill pill-n">Phone call</span>
+      <span class="pill pill-g">1-on-1 exclusive</span>
+      <span class="pill pill-g">Free — included</span>
+    </div>
+    <p class="step-desc">Your personal 15 minutes with Jack before setting foot on court. Jack uses this to understand your background, what hasn't clicked before, and plans your on-court session around <em>you</em> — not a generic program.</p>
+    <div class="covers-box">
+      <div class="covers-label">What Jack covers in your call</div>
+      <ul class="covers-list">
+        <li><span>→</span> Your tennis background and what's frustrated you before</li>
+        <li><span>→</span> Your goals and what success on court looks like for you</li>
+        <li><span>→</span> How Jack plans to structure your on-court session</li>
+        <li><span>→</span> What to bring, wear, and expect on the day</li>
+      </ul>
+    </div>
+    <a href="https://cal.com/jack-he-a5cirn/15min" target="_blank" class="book-btn btn-g">Book Discovery Call →</a>
+  </div>
+
+  <div class="connector" id="connector">↓ Complete step 1 first, then book below</div>
+
+  <!-- STEP 2 — ON-COURT SESSION -->
+  <div class="step" id="step2Block" style="border: 2px dashed rgba(200,84,26,0.3);">
+    <div class="step-header">
+      <div class="step-num num-clay">2</div>
+      <div>
+        <div class="step-eyebrow ey-clay" id="step2Eyebrow">Book after your discovery call</div>
+        <div class="step-title">Your On-Court Trial Session</div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill pill-c">60 min on court</span>
+      <span class="pill pill-n">Court included</span>
+      <span class="pill pill-c">Personalised to you</span>
+    </div>
+    <p class="step-desc">Your 60-minute trial session with Jack. Because Jack has already spoken with you, your session is planned from ball one — not a generic beginner lesson. Pick a time that suits you.</p>
+    <div style="background:var(--green-pale);border:1.5px solid var(--green);border-radius:8px;padding:1rem 1.25rem;font-size:0.85rem;color:var(--mid);line-height:1.75;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem;">📱 What happens next</div>
+      <strong>After your discovery call, Jack will personally send you a link via SMS to book your on-court session.</strong> You don't need to do anything else right now — just complete your discovery call above and Jack will be in touch.
+    </div>
+  </div>
+
+  <div class="tip-box" id="tipBox">
+    <div class="tip-label">💬 Quick tip before your discovery call</div>
+    <p>Have a think about your biggest frustration with tennis so far — even just one sentence. Jack will ask you this in the call and it helps him plan your session properly. Text Jack any time on <strong>0426 752 877</strong> if you have questions.</p>
+  </div>
+</div>
+
+<footer>
+  <p>
+    Start Tennis Sydney<br>
+    <a href="terms.html">Terms & Conditions</a> · 0426 752 877
+  </p>
+</footer>
+
+<script>
+// Copy page link
+function copyLink() {
+  const url = 'https://starttennissydney.com/trial-confirmed';
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = '📋 Copy Link'; btn.style.background = 'var(--clay)'; }, 2500);
+  });
+}
+
+// If arrived from Cal.com after booking discovery call, update the page
+const params = new URLSearchParams(window.location.search);
+const afterCall = params.get('booked') === '1' || document.referrer.includes('cal.com');
+
+if (afterCall) {
+  document.getElementById('heroTag').textContent = 'Discovery call booked ✓';
+  document.getElementById('heroTitle').innerHTML = 'Almost there.<br><span>Now book your on-court session.</span>';
+  document.getElementById('heroSub').textContent = 'Your discovery call is locked in. Now book your 60-minute on-court trial session below.';
+  document.getElementById('sectionLabel').textContent = 'Step 2 — Book your on-court session';
+  document.getElementById('connector').textContent = '↓';
+
+  // Mark step 1 done
+  const step1 = document.getElementById('step1Block');
+  step1.style.opacity = '0.45';
+  step1.style.pointerEvents = 'none';
+  step1.innerHTML += '<div style="position:absolute;top:1rem;right:1rem;background:var(--green);color:white;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">✓ Done</div>';
+  step1.style.position = 'relative';
+
+  // Highlight step 2
+  document.getElementById('step2Block').style.border = '2px solid var(--green)';
+  document.getElementById('step2Eyebrow').textContent = 'Do this now';
+  document.getElementById('step2Eyebrow').className = 'step-eyebrow ey-green';
+  document.getElementById('step2Block').classList.add('active');
+  document.getElementById('step2Block').querySelector('.step-num').className = 'step-num num-green';
+
+  document.getElementById('tipBox').querySelector('.tip-label').textContent = '🎾 Almost done!';
+  document.getElementById('tipBox').querySelector('p').textContent = 'Pick a time that works for you below. Jack will confirm the court and send a reminder before your session. Text Jack on 0426 752 877 with any questions.';
+}
+</script>
+</body>
+</html>
