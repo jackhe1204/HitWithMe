@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-src 'self' https://calendar.google.com https://challenges.cloudflare.com; frame-ancestors 'self';"
+        }
+      ]
+    }
+  ]
+}
