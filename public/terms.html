@@ -592,6 +592,7 @@
 <nav>
   <a href="#" class="nav-logo">Start Tennis<span>Sydney</span> Tennis Coaching</a>
   <div class="nav-badge">Terms & Conditions</div>
+  <button onclick="triggerTranslate()" class="translate-btn" title="切换到中文" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.35rem 0.75rem;border-radius:4px;font-size:0.72rem;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🌐 中文</button>
 </nav>
 
 <!-- Step indicator -->
@@ -1445,3 +1446,10 @@
       }
       if (btn) btn.style.background = 'var(--green)';
       if (downIcon) downIcon.st
+
+<script>
+function triggerTranslate() {
+  var url = "https://translate.google.com/translate?sl=en&tl=zh-CN&u=" + encodeURIComponent(window.location.href);
+  window.location.href = url;
+}
+</script>
