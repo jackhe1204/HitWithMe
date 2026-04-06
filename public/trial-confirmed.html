@@ -106,6 +106,7 @@
     </svg>
   </a>
   <a href="https://starttennissydney.com" class="back-link">← Back to site</a>
+  <button onclick="triggerTranslate()" title="切换到中文" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.35rem 0.75rem;border-radius:4px;font-size:0.72rem;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🌐 中文</button>
 </nav>
 
 <div class="hero">
@@ -226,6 +227,12 @@ if (afterCall) {
 
   document.getElementById('tipBox').querySelector('.tip-label').textContent = '🎾 Almost done!';
   document.getElementById('tipBox').querySelector('p').textContent = 'Pick a time that works for you below. Jack will confirm the court and send a reminder before your session. Text Jack on 0426 752 877 with any questions.';
+}
+</script>
+<script>
+function triggerTranslate() {
+  var url = "https://translate.google.com/translate?sl=en&tl=zh-CN&u=" + encodeURIComponent(window.location.href);
+  window.location.href = url;
 }
 </script>
 </body>
