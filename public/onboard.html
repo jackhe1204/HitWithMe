@@ -828,10 +828,43 @@ function checkDetails() {
 window.onTurnstileSuccess = function() { checkDetails(); };
 </script>
 <script>
-function triggerTranslate() {
-  var url = "https://translate.google.com/translate?sl=en&tl=zh-CN&u=" + encodeURIComponent(window.location.href);
-  window.location.href = url;
+// Check if page is being viewed via Google Translate
+function isTranslated() {
+  return window.location.hostname.includes('translate.goog') || 
+         document.cookie.includes('googtrans');
 }
+
+function updateTranslateBtn() {
+  document.querySelectorAll('.translate-btn').forEach(function(btn) {
+    if (isTranslated()) {
+      btn.textContent = '🌐 English';
+      btn.title = 'Switch to English';
+    } else {
+      btn.textContent = '🌐 中文';
+      btn.title = 'Switch to Chinese';
+    }
+  });
+}
+
+function triggerTranslate() {
+  if (isTranslated()) {
+    // Remove translation - clear cookie and reload original
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
+    // If inside Google Translate iframe redirect, go back to original
+    if (window.location.hostname.includes('translate.goog')) {
+      var orig = window.location.href.replace(/https:\/\/[^.]+\.translate\.goog/, 'https://starttennissydney.com').replace(/\?_x_tr.*/, '');
+      window.location.href = orig;
+    } else {
+      window.location.reload();
+    }
+  } else {
+    var url = 'https://translate.google.com/translate?sl=en&tl=zh-CN&u=' + encodeURIComponent(window.location.href);
+    window.location.href = url;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', updateTranslateBtn);
 </script>
 </body>
 </html>
