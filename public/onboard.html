@@ -147,6 +147,7 @@
     </svg>
   </a>
   <a href="https://starttennissydney.com" class="back-link">← Back to site</a>
+  <button onclick="triggerTranslate()" title="切换到中文" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.35rem 0.75rem;border-radius:4px;font-size:0.72rem;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🌐 中文</button>
 </nav>
 
 <!-- PROGRESS -->
@@ -280,7 +281,7 @@
     </div>
     <iframe class="cal-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FSydney&showPrint=0&src=ODY3ODMwNzIzYjczZjY0NGE5YTBhNTNjNmNhMGY0YzU0NGU0MzczMDZiMDBjNTNkYTIyNWMyMzgwZWYxOWEwM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YzdjYzc2MTZkNzNhMmZjNTI3NzU5Nzg0YzI2YjRiMWEyYzRlYTMyOTdlZWE1N2FkYTE3OGUyNmU3Mjc2ZThmM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MTI4ODU0Y2RlMDJjNWU4YzkyNWQ2M2Q4ZjNiMmRmMjlkMzBlMDkyOThkNWUyMzZjZjMzZWY5MDZlZDM5ODE5YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23a79b8e&color=%238e24aa&color=%23f09300" height="500" frameborder="0" scrolling="no"></iframe>
   </div>
-  <div class="info-box"><strong>View only</strong> — you cannot book through this calendar. Note your preferred time slot and venue, then complete payment. Jack will send you the scheduling link after payment is confirmed.</div>
+  <div class="info-box"><strong>View only</strong> — you cannot book through this calendar. The <strong>+</strong> button does not allow booking — it only opens Google Calendar. To book, complete payment first and Jack will send you a scheduling link directly.</div>
   <div class="btn-row">
     <button class="btn-next btn-green" onclick="goTo(4)">I've Checked Availability — Continue →</button>
     <button class="btn-next btn-back" onclick="goTo(2)">← Back to Waiver</button>
@@ -826,6 +827,11 @@ function checkDetails() {
 // Re-check when Turnstile completes
 window.onTurnstileSuccess = function() { checkDetails(); };
 </script>
-
+<script>
+function triggerTranslate() {
+  var url = "https://translate.google.com/translate?sl=en&tl=zh-CN&u=" + encodeURIComponent(window.location.href);
+  window.location.href = url;
+}
+</script>
 </body>
 </html>
