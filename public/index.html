@@ -291,8 +291,8 @@
       <span style="width:1px;height:100%;background:rgba(255,255,255,0.15);display:inline-block;"></span>
       <a href="book.html" style="color:var(--clay-light) !important;padding:0.5rem 1.1rem;font-size:0.75rem;white-space:nowrap;" onmouseover="this.style.color='white !important'" onmouseout="this.style.color='var(--clay-light) !important'">Returning →</a>
     </li>
-    <li><button onclick="triggerTranslate()" title="切换到中文" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.35rem 0.75rem;border-radius:4px;font-size:0.72rem;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🌐 中文</button></li>
   </ul>
+  <button onclick="triggerTranslate()" class="translate-btn" title="切换到中文" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:0.35rem 0.75rem;border-radius:4px;font-size:0.72rem;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🌐 中文</button>
 </nav>
 
 <!-- HERO -->
@@ -1294,10 +1294,43 @@
   </div>
 </div>
 <script>
-function triggerTranslate() {
-  var url = "https://translate.google.com/translate?sl=en&tl=zh-CN&u=" + encodeURIComponent(window.location.href);
-  window.location.href = url;
+// Check if page is being viewed via Google Translate
+function isTranslated() {
+  return window.location.hostname.includes('translate.goog') || 
+         document.cookie.includes('googtrans');
 }
+
+function updateTranslateBtn() {
+  document.querySelectorAll('.translate-btn').forEach(function(btn) {
+    if (isTranslated()) {
+      btn.textContent = '🌐 English';
+      btn.title = 'Switch to English';
+    } else {
+      btn.textContent = '🌐 中文';
+      btn.title = 'Switch to Chinese';
+    }
+  });
+}
+
+function triggerTranslate() {
+  if (isTranslated()) {
+    // Remove translation - clear cookie and reload original
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
+    // If inside Google Translate iframe redirect, go back to original
+    if (window.location.hostname.includes('translate.goog')) {
+      var orig = window.location.href.replace(/https:\/\/[^.]+\.translate\.goog/, 'https://starttennissydney.com').replace(/\?_x_tr.*/, '');
+      window.location.href = orig;
+    } else {
+      window.location.reload();
+    }
+  } else {
+    var url = 'https://translate.google.com/translate?sl=en&tl=zh-CN&u=' + encodeURIComponent(window.location.href);
+    window.location.href = url;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', updateTranslateBtn);
 </script>
 </body>
 </html>
