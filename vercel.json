@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/maintenance.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-src 'self' https://calendar.google.com https://challenges.cloudflare.com https://translate.google.com https://translate.googleusercontent.com; frame-ancestors 'self' https://translate.google.com https://translate.googleusercontent.com;"
+        }
+      ]
+    }
+  ]
+}
